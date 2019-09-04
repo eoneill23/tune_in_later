@@ -1,6 +1,7 @@
 import React, { Component }  from 'react';
 import './App.css';
 import { fetchAlbums } from '../../util/apiCalls'
+import LogInForm from '../SignUp_LogIn_Forms/LogInForm'
 
 class App extends Component {
   constructor () {
@@ -18,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <section className="App">
-      
+        {/* <LogInForm /> */}
       </section> 
       );
     }
