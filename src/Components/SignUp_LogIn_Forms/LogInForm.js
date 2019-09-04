@@ -16,9 +16,11 @@ class LogInForm extends Component {
     handleSubmit = () => {
         e.preventDefault()
         let currentUser = {
-
+            email: this.state.email,
+            password: this.state.password
         }
     }
+    
 
     clearInputs = () => {
 
