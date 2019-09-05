@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux'
-import { storedAlbums } from '../reducers/addAlbums'
+import { albumsReducer } from '../reducers/addAlbums'
 
-const rootReducer = combineReducers({storedAlbums})
+const rootReducer = combineReducers({
+  albums: albumsReducer
+})
 
 export default rootReducer;

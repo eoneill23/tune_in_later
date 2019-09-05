@@ -31,28 +31,29 @@ class SearchForm extends Component {
 
     searchArtist = (queryArtist) => {
         fetchAlbums(queryArtist)
-        .then(albums => this.props.addAlbums({albums}))
+        .then(albums => this.props.addAlbums(albums.results))
         .catch(error => console.log(error))
     }
 
     render() {
-        return (
-            <form className="SearchForm">
-                <input
-                type = "text"
-                placeholder = "Artist:"
-                name = "artist"
-                value = {this.state.artist}
-                onChange = {this.handleChange}
-                />
-                <button onClick={event => this.handleSubmit(event)}>Search</button>
-            </form>
-        )
-    }
+		console.log(this.props.addAlbums)
+			return (
+				<form className="SearchForm">
+						<input
+						type = "text"
+						placeholder = "Artist:"
+						name = "artist"
+						value = {this.state.artist}
+						onChange = {this.handleChange}
+						/>
+						<button onClick={event => this.handleSubmit(event)}>Search</button>
+				</form>
+		)
+	}
 }
 
-const mapDispatchToProps = (dispatch) => (
-    bindActionCreators({addAlbums}, dispatch)
-)
+const mapDispatchToProps = (dispatch) => ({
+  addAlbums: (albums) => dispatch(addAlbums(albums))
+})
 
 export default connect(null, mapDispatchToProps)(SearchForm);

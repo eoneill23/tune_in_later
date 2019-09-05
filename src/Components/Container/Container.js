@@ -7,18 +7,22 @@ const Container = ({albums}) => {
     let cards
     if(albums !== undefined) {
       cards = albums.map(album => {
-      return <Card 
-        {...album}
-      />
+        return <Card
+          id={album.collectionId}
+          key={album.collectionId}
+          title={album.collectionName}
+          price={album.collectionPrice}
+          img={album.artworkUrl100}
+        />
     })
     } else {
       const response = "ENTER AN ARTIST"
       return response
     } 
     return (
-      <>
+      <section className='Container'>
       {cards}
-      </>
+      </section>
     )
   }
   
