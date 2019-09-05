@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import fetchAlbums from '../../util/apiCalls'
+import { fetchAlbums } from '../../util/apiCalls'
+import { addAlbums } from '../../actions/index'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux'
 
 class SearchForm extends Component {
     constructor() {
@@ -18,12 +21,18 @@ class SearchForm extends Component {
         const queryArtist = {
             name: this.state.artist
         }
-        this.props.searchArtist(queryArtist)
+        this.searchArtist(queryArtist)
         this.clearInputs()
     }
 
     clearInputs = () => {
         this.setState({artist: ""})
+    }
+
+    searchArtist = (queryArtist) => {
+        fetchAlbums(queryArtist)
+        .then(albums => this.props.addAlbums({albums}))
+        .catch(error => console.log(error))
     }
 
     render() {
@@ -42,4 +51,8 @@ class SearchForm extends Component {
     }
 }
 
-export default SearchForm;
+const mapDispatchToProps = (dispatch) => {
+    bindActionCreators({addAlbums}, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(SearchForm);
