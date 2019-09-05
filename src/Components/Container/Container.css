@@ -1,0 +1,8 @@
+.Container {
+    background-color: aquamarine;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    height: 100vh;
+    width: 100%;
+}
