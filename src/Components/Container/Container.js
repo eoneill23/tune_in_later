@@ -4,28 +4,26 @@ import './Container.css'
 import { connect } from 'react-redux'
 
 const Container = ({albums}) => {
-    {!albums ? <p>Nope</p> : displayAlbums}
-    const displayAlbums = albums.map(album => {
-        return (
-            <Card
-            id={album.collectionId}
-            key={album.collectionId}
-            title={album.collectionName}
-            price={album.collectionPrice}
-            img={album.artworkUrl100}
-            />
-            )
+    let cards
+    if(albums !== undefined) {
+      cards = albums.map(album => {
+      return <Card 
+        {...album}
+      />
     })
-       
+    } else {
+      const response = "ENTER AN ARTIST"
+      return response
+    } 
     return (
-        <section className="Container">
-            {displayAlbums}
-        </section>
+      <>
+      {cards}
+      </>
     )
-}
-
-const mapStateToProps = ({albums}) => ({
-    albums
-})
+  }
+  
+  const mapStateToProps = (store) => ({
+    albums: store.albums
+  })
 
 export default connect(mapStateToProps)(Container)

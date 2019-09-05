@@ -51,8 +51,8 @@ class SearchForm extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => (
     bindActionCreators({addAlbums}, dispatch)
-}
+)
 
 export default connect(null, mapDispatchToProps)(SearchForm);
