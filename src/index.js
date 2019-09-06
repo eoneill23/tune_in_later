@@ -9,12 +9,16 @@ import rootReducer from './reducers/index'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { createStore } from 'redux'
 
+import { BrowserRouter } from 'react-router-dom';
+
 const store = createStore(rootReducer, composeWithDevTools())
 
 ReactDOM.render(
-    <Provider store={store}>
+    <BrowserRouter>
+      <Provider store={store}>
         <App />
-    </Provider>, 
+    </Provider>
+    </BrowserRouter>, 
     document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
