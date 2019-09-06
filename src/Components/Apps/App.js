@@ -10,7 +10,8 @@ class App extends Component {
   render() {
     return (
       <section className="App">
-        <Route exact path='/' render={() => <SearchForm /> && <Container/>} />
+        <Route exact path='/' render={() => <SearchForm />} />
+        <Route exact path='/' render={() => <Container/>} />
         <Route exact path='/login' render={() => <LogInForm />} />
         <Route exact path='/signup' render={() => <SignUpForm />} />
       </section>
