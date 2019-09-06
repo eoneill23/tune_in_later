@@ -7,3 +7,4 @@ export const validUser = (user) => ({
 	type: 'VALID_USER',
 	user
 })
+
