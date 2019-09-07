@@ -2,12 +2,17 @@ import React, { Component }  from 'react';
 import './App.css';
 import SearchForm from '../Forms/SearchForm'
 import Container from '../Container/Container';
-import { Router, Route, Link } from 'react-router-dom';
+import { Router, Route, Link, Redirect } from 'react-router-dom';
 import LogInForm from '../Forms/LogInForm';
 import SignUpForm from '../Forms/SignUpForm';
+import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
+    if (this.props.user !== {}) {
+      return <Redirect to="/login" />
+    }
+    
     return (
       <section className="App">
         <Route exact path='/' render={() => <SearchForm />} />
@@ -19,4 +24,8 @@ class App extends Component {
     }
 }
 
-export default App;
+const mapStateToProps = ({ user }) => ({
+  user
+});
+
+export default connect(mapStateToProps)(App);

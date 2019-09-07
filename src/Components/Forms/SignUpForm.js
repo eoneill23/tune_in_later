@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { fetchUser } from '../../util/apiCalls';
+import { addUser } from '../../util/apiCalls';
 import { validUser } from '../../actions/index';
 import { connect } from 'react-redux';
 import { Redirect} from 'react-router-dom'
 
 
-class LogInForm extends Component {
+class SignUpForm extends Component {
 	constructor() {
 		super();
 		this.state = {
-            name: "",
+      name: "",
 			email: "",
 			password: "",
 			error: ""
@@ -23,21 +23,21 @@ class LogInForm extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault()
 		let user = {
-            id: Date.now(),
-            name: this.state.name,
-            email: this.state.email,
-            password: this.state.password
+        id: Date.now(),
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password
 		}
-		// this.userLogin(user);
+		this.userLogin(user);
 		this.clearInputs();
 
 	}
 
-	// userLogin = (user) => {
-	// 	createUser(user)
-	// 	.then(user => this.props.validUser(user))
-	// 	.catch(error => this.setState({error}))
-	// }
+	userLogin = (user) => {
+		addUser(user)
+		.then(user => this.props.validUser(user))
+    .catch(error => this.setState({error}))
+	}
 
 	clearInputs = () => {
 		this.setState({id: '', name: '', email: '', password: ''});
@@ -78,7 +78,7 @@ class LogInForm extends Component {
 						Submit
 					</button>
 				</form>
-				{this.state.error && <p>The email and/or password do not match an existing user.</p>}
+				{this.state.error && <p>This user already exists.</p>}
 			</article>
 		)
 	}
@@ -92,6 +92,6 @@ const mapDispatchToProps = (dispatch) => ({
 	validUser: (user) => dispatch(validUser(user))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LogInForm);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);
 
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fetchAlbums } from '../../util/apiCalls';
 import { addAlbums } from '../../actions/index';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class SearchForm extends Component {
 	constructor() {
@@ -46,6 +47,7 @@ class SearchForm extends Component {
 					onChange = {this.handleChange}
 					/>
 					<button onClick={event => this.handleSubmit(event)}>Search</button>
+					<Link to='login'><button>Logout</button></Link>
 			</form>
 		)
 	}
