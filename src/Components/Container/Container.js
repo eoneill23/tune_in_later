@@ -3,7 +3,7 @@ import Card from '../Card/Card';
 import './Container.css';
 import { connect } from 'react-redux';
 
-const Container = ({albums}) => {
+const Container = ({albums, user}) => {
     let cards
     if(albums !== undefined) {
       cards = albums.map(album => {
@@ -13,6 +13,7 @@ const Container = ({albums}) => {
           title={album.collectionName}
           price={album.collectionPrice}
           img={album.artworkUrl100}
+          user={user}
         />
     })
     } else {
@@ -27,7 +28,8 @@ const Container = ({albums}) => {
   }
   
   const mapStateToProps = (store) => ({
-    albums: store.albums
+    albums: store.albums,
+    user: store.user
   });
 
 export default connect(mapStateToProps)(Container)

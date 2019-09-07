@@ -13,7 +13,8 @@ class App extends Component {
     
     return (
       <section className="App">
-        <Route exact path='/' render={() => user ? <Redirect to="/" /> :  <Redirect to='/login' />} />
+        {/* <Route exact path='/' render={() => user ? <Redirect to="/login" /> :  <Redirect to='/' />} /> */}
+        {/* <Route exact path='/' render={() => user ? <Redirect to="/" /> :  <Redirect to='/login' />} /> */}
         <Route exact path='/signup' render={() => <SignUpForm />} />
         <Route exact path='/' render={() => <SearchForm />} />
         <Route exact path='/login' render={() => <LogInForm />} />
