@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { fetchAlbums } from '../../util/apiCalls';
 import { addAlbums } from '../../actions/index';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 class SearchForm extends Component {
 	constructor() {

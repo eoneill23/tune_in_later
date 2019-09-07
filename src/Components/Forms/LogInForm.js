@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { fetchUser } from '../../util/apiCalls';
 import { validUser } from '../../actions/index';
 import { connect } from 'react-redux';
-import { Redirect} from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 
 
 class LogInForm extends Component {
@@ -68,6 +68,7 @@ class LogInForm extends Component {
 						Submit
 					</button>
 				</form>
+				<p>Are you a new user? <Link to="/signup">Sign Up Here</Link></p>
 				{this.state.error && <p>The email and/or password do not match an existing user.</p>}
 			</article>
 		)
