@@ -20,8 +20,8 @@ const Card = ({id, key, title, price, img, user, addFavorite, invalidUser}) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-addFavorite: () => dispatch(addFavorite()),
-invalidUser: () => dispatch(invalidUser())
-})
+	addFavorite: () => dispatch(addFavorite()),
+	invalidUser: () => dispatch(invalidUser())
+});
 
 export default connect(null, mapDispatchToProps)(Card)

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { fetchUser } from '../../util/apiCalls';
 import { validUser } from '../../actions/index';
 import { connect } from 'react-redux';
-import { Redirect, Link } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom';
 
 
 class LogInForm extends Component {
@@ -27,7 +27,6 @@ class LogInForm extends Component {
 		}
 		this.userLogin(user);
 		this.clearInputs();
-
 	}
 
 	userLogin = (user) => {
@@ -75,8 +74,8 @@ class LogInForm extends Component {
 	}
 }
 
-const mapStateToProps = ({user}) => ({
-user
+const mapStateToProps = (state) => ({
+	user: state.user
 })
 
 const mapDispatchToProps = (dispatch) => ({

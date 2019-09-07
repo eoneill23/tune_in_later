@@ -56,8 +56,8 @@ class SearchForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-user: state.user,
-invalidUser: state.invalidUser
+	user: state.user,
+	invalidUser: state.invalidUser
 })
 
 const mapDispatchToProps = (dispatch) => ({
