@@ -31,7 +31,6 @@ export const fetchUser = (user) => {
 }
 
 export const addUser = (user) => {
-  console.log(user)
   const options = {
     method: "POST",
     body: JSON.stringify(user),
@@ -41,7 +40,6 @@ export const addUser = (user) => {
   }
   return fetch('http://localhost:3001/api/v1/users', options)
     .then(response => {
-      console.log('Here is the response status', response.status)
       if (!response.ok) {
         throw Error('There was an issue creating your account.')
       }
@@ -49,5 +47,20 @@ export const addUser = (user) => {
     })
     .catch(error => {
       throw Error('There was an issue creating your account.')
+    })
+}
+
+export const fetchUserFavorites = (id) => {
+  console.log(id)
+  return fetch(`http://localhost:3001/api/v1/users/${id}/albumfavorites`)
+    .then(response => {
+      if (!response.ok) {
+        throw Error('There was an issue getting your favorites.')
+      }
+      console.log('THIS IS THE RESPONSE', response)
+      return response.json()
+    })
+    .catch(error => {
+      throw Error('There was an issue getting your favorites.')
     })
 }
