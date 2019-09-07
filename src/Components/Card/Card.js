@@ -1,19 +1,31 @@
 import React from 'react'
 import './Card.css'
 import { addFavorite, invalidUser } from '../../actions/index'
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { postFavorite } from '../../util/apiCalls';
 
-const Card = ({id, key, title, price, img, user, addFavorite, invalidUser}) => {
+const Card = ({ album_id, artist_name, album_name, artwork_url, release_date, content_advisory_rating, primary_genre_name, user, addFavorite, invalidUser, isFavorite }) => {
 	const isUserLoggedIn = (e) => {
-		console.log("hey")
+		console.log("Only valid user can save favorites.")
 		e.preventDefault()
-		return user ? addFavorite() : invalidUser();
+		return user ? toggleFavorite() : invalidUser();
 	}
+
+	const toggleFavorite = () => {
+		if(isFavorite) {
+
+		} else {
+	postFavorite({}, user.userId)
+
+		}
+	
+		isFavorite = !isFavorite;
+	}
+
  	return (
 		<article className="Card">
-			<img src={img} alt=""/>
-			<h2>{title}</h2>
-			<p>{price}</p>
+			<img src={artwork_url} alt="Album cover art"/>
+			<h2>{album_name}</h2>
 			<button onClick={(e) => isUserLoggedIn(e)}>Save For Later</button>
 		</article>
 	)

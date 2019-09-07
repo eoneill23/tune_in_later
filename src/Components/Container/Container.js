@@ -17,13 +17,19 @@ const Container = ({albums, user, getUserFavorites}) => {
   let cards
   if(albums !== undefined) {
     cards = albums.map(album => {
+      console.log('album is', album);
       return <Card
-        id={album.collectionId}
+        album_id={album.collectionId}
         key={album.collectionId}
-        title={album.collectionName}
+        artist_name={album.artistName}
+        album_name={album.collectionName}
         price={album.collectionPrice}
-        img={album.artworkUrl100}
-        user={user}
+        artwork_url={album.artworkUrl100}
+        release_date={album.releaseDate}
+        content_advisory_rating={album.contentAdvisoryRating || 'notExplicit'}
+        primary_genre_name={album.primaryGenreName}
+        user = {user}
+        isFavorite={false}
       />
   })
   } else {
