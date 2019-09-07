@@ -8,3 +8,11 @@ export const validUser = (user) => ({
 	user
 })
 
+export const addFavorite = (id) => ({
+	type: 'ADD_FAVORITE',
+	id
+})
+
+export const invalidUser = () => ({
+	type: 'INVALID_USER'
+})
