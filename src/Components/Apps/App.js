@@ -9,23 +9,22 @@ import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
-    if (this.props.user !== {}) {
-      return <Redirect to="/login" />
-    }
+    const {user} = this.props;
     
     return (
       <section className="App">
-        <Route exact path='/' render={() => <SearchForm />} />
-        <Route exact path='/' render={() => <Container/>} />
-        <Route exact path='/login' render={() => <LogInForm />} />
+        <Route exact path='/' render={() => user ? <Redirect to="/" /> :  <Redirect to='/login' />} />
         <Route exact path='/signup' render={() => <SignUpForm />} />
+        <Route exact path='/' render={() => <SearchForm />} />
+        <Route exact path='/login' render={() => <LogInForm />} />
+        <Route exact path='/' render={() => <Container/>} />
       </section>
       );
     }
 }
 
-const mapStateToProps = ({ user }) => ({
-  user
+const mapStateToProps = (state) => ({
+  user: state.user
 });
 
 export default connect(mapStateToProps)(App);

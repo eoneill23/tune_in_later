@@ -47,7 +47,7 @@ class SearchForm extends Component {
 					onChange = {this.handleChange}
 					/>
 					<button onClick={event => this.handleSubmit(event)}>Search</button>
-					<Link to='login'><button>Logout</button></Link>
+				<button>Logout</button>
 			</form>
 		)
 	}

@@ -41,7 +41,7 @@ class LogInForm extends Component {
 	}
 
 	render() {
-		if (this.props.user.id) {
+		if (this.props.user) {
 			return <Redirect to="/" />
 		}
 
