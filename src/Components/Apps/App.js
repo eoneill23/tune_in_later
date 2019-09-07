@@ -2,7 +2,7 @@ import React, { Component }  from 'react';
 import './App.css';
 import SearchForm from '../Forms/SearchForm'
 import Container from '../Container/Container';
-import { Router, Route, Link, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import LogInForm from '../Forms/LogInForm';
 import SignUpForm from '../Forms/SignUpForm';
 import { connect } from 'react-redux';

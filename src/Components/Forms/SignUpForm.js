@@ -44,13 +44,13 @@ class SignUpForm extends Component {
 	}
 
 	render() {
-		if (this.props.user.id) {
+		if (this.props.user) {
 			return <Redirect to="/" />
 		}
-
+		
 		return (
-			<article className="LoginInFormContainer">
-				<form className="LogInForm">
+			<article className="SignUpFormContainer">
+				<form className="SignUpForm">
                     <input
 					type="text"
 					placeholder="Name: "
