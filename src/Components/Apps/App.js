@@ -35,14 +35,14 @@ class App extends Component {
         <Route exact path='/login' render={() => <LogInForm />} />
         <Route exact path='/' render={() => <Container displayType={'albums'}/>} />
         <Route exact path='/my-collection' render={() => <Container displayType={"favorites"}/>}/>
-        <Route path='/cardDetails/:id' render={({ match }) => {
+        <Route path='/albums/:id' render={({ match }) => {
           let foundAlbum = this.props.albums.find(album => {
             return album.album_id == match.params.id
           });
           console.log(foundAlbum)
           return <CardDetails {...foundAlbum} returnRoute={'/'} />
         }} />
-        <Route path='/cardDetails/:id' render={({ match }) => {
+        <Route path='/favorites/:id' render={({ match }) => {
           let foundAlbum = this.props.favorites.find(favorite => {
             return favorite.id == match.params.id
           });

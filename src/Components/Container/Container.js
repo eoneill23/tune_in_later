@@ -20,7 +20,7 @@ const Container = ({albums, user, favorites, displayType}) => {
         content_advisory_rating={album.contentAdvisoryRating || 'notExplicit'}
         primary_genre_name={album.primaryGenreName}
         user={user}
-        routeType={'/'}
+        routeType={'albums'}
       />
   })
 } else if(displayType === 'favorites') {
@@ -36,7 +36,7 @@ const Container = ({albums, user, favorites, displayType}) => {
         content_advisory_rating={album.content_advisory_rating || 'notExplicit'}
         primary_genre_name={album.primary_genre_name}
         user={user}
-        routeType={'/'}
+        routeType={'favorites'}
       />
   })
   } else {

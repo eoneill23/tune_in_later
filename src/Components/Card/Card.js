@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postFavorite, deleteFavorite } from '../../util/apiCalls';
 
-const Card = ({ album_id, artist_name, album_name, artwork_url, release_date, content_advisory_rating, primary_genre_name, user, addFavorite, invalidUser, favorites, removeFavoriteFromStore }) => {
+const Card = ({ album_id, artist_name, album_name, artwork_url, release_date, content_advisory_rating, primary_genre_name, user, addFavorite, invalidUser, favorites, removeFavoriteFromStore, routeType }) => {
 	const isUserLoggedIn = (e) => {
 		e.preventDefault()
 		return user ? toggleFavorite() : invalidUser();
@@ -29,7 +29,7 @@ const Card = ({ album_id, artist_name, album_name, artwork_url, release_date, co
 
  	return (
 		<article className={cardClassName}>
-				<Link to={`/cardDetails/${album_id}`}><img src={artwork_url} alt="Album cover art" /></Link>
+				<Link to={`/${routeType}/${album_id}`}><img src={artwork_url} alt="Album cover art" /></Link>
 			<h2>{album_name}</h2>
 			<button onClick={(e) => isUserLoggedIn(e)}>Save For Later</button>
 		</article>
