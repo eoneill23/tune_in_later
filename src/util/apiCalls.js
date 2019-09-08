@@ -88,21 +88,20 @@ export const postFavorite = (card, id) => {
   })
 }
 
-export const deleteFavorite = (id) => {
+export const deleteFavorite = (albumId, userId) => {
+  console.log('AHHHHH', userId, albumId)
   const options = {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }
+    method: "DELETE"
+  };
 
-  return fetch(`http://localhost:3001/api/v1/users/${id}/albumfavorites`, options)
+  return fetch(`http://localhost:3001/api/v1/users/${userId}/albumfavorites/${albumId}`, options)
   .then(response => {
+    console.log(response)
     if (!response.ok) {
       throw Error('There was an issue removing your favorite.')
     }
     // console.log('THIS IS THE RESPONSE', response)
-    return response.json()
+    // return response.json()
   })
   .catch(error => {
     console.log(error)

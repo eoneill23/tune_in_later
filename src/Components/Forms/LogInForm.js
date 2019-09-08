@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { fetchUser } from '../../util/apiCalls';
-import { validUser } from '../../actions/index';
+import { fetchUser, fetchUserFavorites } from '../../util/apiCalls';
+import { validUser, getUserFavorites } from '../../actions/index';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 
@@ -32,6 +32,8 @@ class LogInForm extends Component {
 	userLogin = (user) => {
 		fetchUser(user)
 		.then(user => this.props.validUser(user))
+		.then(data => data.user.id ? fetchUserFavorites(data.user.id) : null)
+    .then(data => getUserFavorites(data.favorites))
 		.catch(error => this.setState({error}))
 	}
 
