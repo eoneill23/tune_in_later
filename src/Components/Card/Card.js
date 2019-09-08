@@ -1,35 +1,35 @@
 import React from 'react'
 import './Card.css'
-import { addFavorite, invalidUser, removeFavoriteFromStore } from '../../actions/index'
+import { addFavorite, invalidUser, removeFavoriteFromStore } from '../../actions/index';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postFavorite, deleteFavorite } from '../../util/apiCalls';
 
-const Card = ({ album_id, artist_name, album_name, artwork_url, release_date, content_advisory_rating, primary_genre_name, user, addFavorite, invalidUser, isFavorite, favorites, removeFavoriteFromStore }) => {
+const Card = ({ album_id, artist_name, album_name, artwork_url, release_date, content_advisory_rating, primary_genre_name, user, addFavorite, invalidUser, favorites, removeFavoriteFromStore, routeType }) => {
 	const isUserLoggedIn = (e) => {
 		e.preventDefault()
 		return user ? toggleFavorite() : invalidUser();
 	}
 
+	let isFavorite = favorites.map(favorite => favorite.album_id).includes(album_id);
+
+	let cardClassName = isFavorite ? 'favoriteCard' : 'Card'
+
 	const toggleFavorite = () => {
-		let isFavorite = favorites.map(favorite => favorite.album_id).includes(album_id);
-		console.log("THIS IS THE IS FAVORITE STATUS", isFavorite)
 		if(isFavorite) {
 			removeFavoriteFromStore(album_id);
 			deleteFavorite(album_id, user.id);
 		} else {
-			console.log("SHOULD GET THIS IF ISFAVORITE IS FALSE")
 			const albumData = {album_id, artist_name, album_name, artwork_url, release_date, content_advisory_rating, primary_genre_name}
 			postFavorite(albumData, user.id)
 			.then(favorite => addFavorite(favorite))
 			.catch(error => console.log(error))
-
 		}
-		isFavorite = !isFavorite;
 	}
 
  	return (
-		<article className="Card">
-			<img src={artwork_url} alt="Album cover art"/>
+		<article className={cardClassName}>
+				<Link to={`/${routeType}/${album_id}`}><img src={artwork_url} alt="Album cover art" /></Link>
 			<h2>{album_name}</h2>
 			<button onClick={(e) => isUserLoggedIn(e)}>Save For Later</button>
 		</article>

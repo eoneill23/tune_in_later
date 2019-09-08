@@ -3,7 +3,7 @@ import './App.css';
 import SearchForm from '../Forms/SearchForm'
 import Container from '../Container/Container';
 import { Route, Link } from 'react-router-dom';
-import { fetchUserFavorites } from '../../util/apiCalls';
+import CardDetails from '../CardDetails/CardDetails'
 import LogInForm from '../Forms/LogInForm';
 import SignUpForm from '../Forms/SignUpForm';
 import { connect } from 'react-redux';
@@ -35,13 +35,29 @@ class App extends Component {
         <Route exact path='/login' render={() => <LogInForm />} />
         <Route exact path='/' render={() => <Container displayType={'albums'}/>} />
         <Route exact path='/my-collection' render={() => <Container displayType={"favorites"}/>}/>
+        <Route path='/albums/:id' render={({ match }) => {
+          let foundAlbum = this.props.albums.find(album => {
+            return album.album_id == match.params.id
+          });
+          console.log(foundAlbum)
+          return <CardDetails {...foundAlbum} returnRoute={'/'} />
+        }} />
+        <Route path='/favorites/:id' render={({ match }) => {
+          let foundAlbum = this.props.favorites.find(favorite => {
+            return favorite.id == match.params.id
+          });
+          console.log(foundAlbum)
+          return <CardDetails {...foundAlbum} returnRoute={'/my-collection'} />
+        }} />
       </section>
       );
     }
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.user,
+  albums: state.albums,
+  favorites: state.favorites
 });
 
 export default connect(mapStateToProps)(App);

@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const Container = ({albums, user, favorites, displayType}) => {
-  console.log('first displayType is', displayType, favorites);
 
   let cards
   if(displayType === 'albums') {
@@ -20,11 +19,11 @@ const Container = ({albums, user, favorites, displayType}) => {
         release_date={album.releaseDate}
         content_advisory_rating={album.contentAdvisoryRating || 'notExplicit'}
         primary_genre_name={album.primaryGenreName}
-        user = {user}
+        user={user}
+        routeType={'albums'}
       />
   })
 } else if(displayType === 'favorites') {
-  console.log('2nd displayType is', displayType, favorites);
     cards = favorites.map(album => {
       return <Card
         album_id={album.album_id}
@@ -36,7 +35,8 @@ const Container = ({albums, user, favorites, displayType}) => {
         release_date={album.release_date}
         content_advisory_rating={album.content_advisory_rating || 'notExplicit'}
         primary_genre_name={album.primary_genre_name}
-        user = {user}
+        user={user}
+        routeType={'favorites'}
       />
   })
   } else {
