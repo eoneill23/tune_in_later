@@ -3,16 +3,8 @@ import Card from '../Card/Card';
 import './Container.css';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getUserFavorites } from '../../actions/index';
-import { fetchUserFavorites } from '../../util/apiCalls';
 
-const Container = ({albums, user, getUserFavorites}) => {
-
-  // const getFavorites = () => {
-  //   fetchUserFavorites(user.id)
-  //   .then(data => getUserFavorites(data.favorites))
-  //   .catch(error => console.log('THIS IS THE ERROR', error))
-  // }
+const Container = ({albums, user, favorites}) => {
 
   let cards
   if(albums !== undefined) {
@@ -37,7 +29,7 @@ const Container = ({albums, user, getUserFavorites}) => {
   } 
   return (
     <section className='Container'>
-      {user && <NavLink to='/my-container'>View Favorites()</NavLink>}
+      {user && <NavLink to='/my-container'>View Favorites | {favorites.length}</NavLink>}
       {cards}
     </section>
   )
@@ -45,11 +37,8 @@ const Container = ({albums, user, getUserFavorites}) => {
   
 export const mapStateToProps = (store) => ({
   albums: store.albums,
-  user: store.user
+  user: store.user,
+  favorites: store.favorites
 });
 
-export const mapDispatchToProps = (dispatch) => ({
-  getUserFavorites: (favorites) => dispatch(getUserFavorites(favorites))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Container)
+export default connect(mapStateToProps)(Container)

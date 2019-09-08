@@ -21,3 +21,8 @@ export const getUserFavorites = (userFavorites) => ({
 	type: 'GET_USER_FAVORITES',
 	userFavorites
 });
+
+export const removeFavoriteFromStore = (albumId) => ({
+	type: 'REMOVE_FAVORITE_FROM_STORE',
+	albumId
+})

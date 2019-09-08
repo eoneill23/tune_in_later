@@ -1,20 +1,23 @@
 import React from 'react'
 import './Card.css'
-import { addFavorite, invalidUser } from '../../actions/index'
+import { addFavorite, invalidUser, removeFavoriteFromStore } from '../../actions/index'
 import { connect } from 'react-redux';
 import { postFavorite, deleteFavorite } from '../../util/apiCalls';
 
-const Card = ({ album_id, artist_name, album_name, artwork_url, release_date, content_advisory_rating, primary_genre_name, user, addFavorite, invalidUser, isFavorite, favorites }) => {
+const Card = ({ album_id, artist_name, album_name, artwork_url, release_date, content_advisory_rating, primary_genre_name, user, addFavorite, invalidUser, isFavorite, favorites, removeFavoriteFromStore }) => {
 	const isUserLoggedIn = (e) => {
 		e.preventDefault()
 		return user ? toggleFavorite() : invalidUser();
 	}
 
 	const toggleFavorite = () => {
-		let isFavorite = favorites.map(favorite => favorite.user_id).includes(user.id);
+		let isFavorite = favorites.map(favorite => favorite.album_id).includes(album_id);
+		console.log("THIS IS THE IS FAVORITE STATUS", isFavorite)
 		if(isFavorite) {
-			deleteFavorite(album_id, user.id)
+			removeFavoriteFromStore(album_id);
+			deleteFavorite(album_id, user.id);
 		} else {
+			console.log("SHOULD GET THIS IF ISFAVORITE IS FALSE")
 			const albumData = {album_id, artist_name, album_name, artwork_url, release_date, content_advisory_rating, primary_genre_name}
 			postFavorite(albumData, user.id)
 			.then(favorite => addFavorite(favorite))
@@ -38,7 +41,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
 	addFavorite: (favorite) => dispatch(addFavorite(favorite)),
-	invalidUser: () => dispatch(invalidUser())
+	invalidUser: () => dispatch(invalidUser()),
+	removeFavoriteFromStore: (album_id) => dispatch(removeFavoriteFromStore(album_id))
 });
 
 export default connect(mapStateToProps	, mapDispatchToProps)(Card)
