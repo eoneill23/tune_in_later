@@ -3,6 +3,7 @@ import { fetchUser } from '../../util/apiCalls';
 import { validUser } from '../../actions/index';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
+import './LogInForm.css'
 
 
 class LogInForm extends Component {
@@ -45,7 +46,7 @@ class LogInForm extends Component {
 		}
 
 		return (
-			<article className="LoginInFormContainer">
+			<article className="LogInFormContainer">
 				<form className="LogInForm">
 					<input
 					type="text"
@@ -61,14 +62,14 @@ class LogInForm extends Component {
 					value={this.state.password}
 					onChange={this.handleChange}
 					required/>
-					<button 
+					<button className="loginUser"
 						onClick={event => this.handleSubmit(event)}
 					>
 						Submit
 					</button>
 				</form>
 				<p>Are you a new user? <Link to="/signup">Sign Up Here</Link></p>
-				{this.state.error && <p>The email and/or password do not match an existing user.</p>}
+				{this.state.error && <p id="error">The email and/or password do not match an existing user.</p>}
 			</article>
 		)
 	}
