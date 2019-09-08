@@ -1,14 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-const CardDetails = ({ album_id, artist_name, album_name, artwork_url, release_date, content_advisory_rating, primary_genre_name, price, returnRoute}) => {
+const CardDetails = ({  artist_name, album_name, artwork_url, release_date,  primary_genre_name, returnRoute}) => {
   console.log('HERE IS THE RETURN ROUTE', returnRoute)
   return (
     <div>
       <Link to={`${returnRoute}`} className='back-btn'>◀ back</Link>
-      <h1>{'google.com'}</h1>
-      <img src={'google.com'} className='app-img-no-hover' />
-      <p className='creature-bio'>{'google.com'}</p>
+      <h1>{album_name}</h1>
+      <h1>{artist_name}</h1>
+      <img src={artwork_url} className='app-img-no-hover' />
+      <p className='card-detail-genre'>{primary_genre_name}</p>
+      <p className='card-detail-release_date'>{release_date}</p>
     </div>
   )
 }
