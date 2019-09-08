@@ -4,15 +4,17 @@ import { addFavorite, invalidUser, removeFavoriteFromStore } from '../../actions
 import { connect } from 'react-redux';
 import { postFavorite, deleteFavorite } from '../../util/apiCalls';
 
-const Card = ({ album_id, artist_name, album_name, artwork_url, release_date, content_advisory_rating, primary_genre_name, user, addFavorite, invalidUser, isFavorite, favorites, removeFavoriteFromStore }) => {
+const Card = ({ album_id, artist_name, album_name, artwork_url, release_date, content_advisory_rating, primary_genre_name, user, addFavorite, invalidUser, favorites, removeFavoriteFromStore }) => {
 	const isUserLoggedIn = (e) => {
 		e.preventDefault()
 		return user ? toggleFavorite() : invalidUser();
 	}
 
+	let isFavorite = favorites.map(favorite => favorite.album_id).includes(album_id);
+
+	let cardClassName = isFavorite ? 'favoriteCard' : 'Card'
+
 	const toggleFavorite = () => {
-		let isFavorite = favorites.map(favorite => favorite.album_id).includes(album_id);
-		console.log("THIS IS THE IS FAVORITE STATUS", isFavorite)
 		if(isFavorite) {
 			removeFavoriteFromStore(album_id);
 			deleteFavorite(album_id, user.id);
@@ -28,7 +30,7 @@ const Card = ({ album_id, artist_name, album_name, artwork_url, release_date, co
 	}
 
  	return (
-		<article className="Card">
+		<article className={cardClassName}>
 			<img src={artwork_url} alt="Album cover art"/>
 			<h2>{album_name}</h2>
 			<button onClick={(e) => isUserLoggedIn(e)}>Save For Later</button>
