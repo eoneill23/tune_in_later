@@ -5,13 +5,7 @@
 
 button {
     font-family: 'Permanent Marker', cursive;
-    
-}
-
-#newUser {
-    background: url() no-repeat;
-}
-
-#existingUser {
-    background: url(./user-silhouette.svg) no-repeat;
+    background-color: transparent;
+    border: none;
+    background-position: center;
 }

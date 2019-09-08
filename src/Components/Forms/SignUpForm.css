@@ -1,0 +1,24 @@
+.SignUpFormContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Permanent Marker', cursive;
+    color: #F4E697;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 35%;
+    margin: auto;
+    height: 250px;
+}
+
+input {
+    height: 50px;
+    font-size: 20px;
+    border-radius: 15px;
+    padding: 5px;
+}

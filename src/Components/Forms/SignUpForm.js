@@ -3,6 +3,7 @@ import { addUser } from '../../util/apiCalls';
 import { validUser } from '../../actions/index';
 import { connect } from 'react-redux';
 import { Redirect} from 'react-router-dom'
+import './SignUpForm.css'
 
 
 class SignUpForm extends Component {

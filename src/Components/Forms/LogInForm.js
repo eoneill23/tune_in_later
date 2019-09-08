@@ -3,6 +3,7 @@ import { fetchUser } from '../../util/apiCalls';
 import { validUser } from '../../actions/index';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
+import './LogInForm.css'
 
 
 class LogInForm extends Component {
@@ -45,7 +46,7 @@ class LogInForm extends Component {
 		}
 
 		return (
-			<article className="LoginInFormContainer">
+			<article className="LogInFormContainer">
 				<form className="LogInForm">
 					<input
 					type="text"

@@ -39,11 +39,6 @@ class SearchForm extends Component {
 		return (
 		<section className="SearchFormContainer">
 			{this.props.invalidUser && <p>Hey</p>}
-			{!this.props.user && 
-			<article className="buttonContainer">
-				<button id="newUser">LogIn</button>
-				<button id="existingUser">SignUp</button>
-			</article>}
 			<form className="SearchForm">
 					<input
 					type = "text"

@@ -1,22 +1,50 @@
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
+
 header {
-  height: 150px;
+  height: 175px;
   width: 100%;
   font-family: 'Permanent Marker', cursive;
   font-size: 3em;
   background-color: #596743;
   color: #F4E697;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
 }
 
 img {
   height: 45px;
   width: 5%;
   margin-left: 10px;
+}
+
+.headerContents {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonContainer {
+text-align: center;
+}
+
+button {
+  font-size: 20px;
+  color: #F4E697;
+  background-color: transparent;
+  border: none;
+  background-position: center;
+  margin-right: 30px;
+}
+
+#newUser, #existingUser {
+  height: auto;
+  width: 3%;
+  margin-right: 8px;
+}
+
+body {
+  background-color: #384150
 }
