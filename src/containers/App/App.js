@@ -1,11 +1,11 @@
 import React, { Component }  from 'react';
 import './App.css';
-import SearchForm from '../Forms/SearchForm'
-import Container from '../Container/Container';
+import SearchForm from '../../Components/Forms/SearchForm'
+import Container from '../../Components/CardContainer/Container';
 import { Route, Link } from 'react-router-dom';
-import CardDetails from '../CardDetails/CardDetails'
-import LogInForm from '../Forms/LogInForm';
-import SignUpForm from '../Forms/SignUpForm';
+import CardDetails from '../../Components/CardDetails/CardDetails'
+import LogInForm from '../../Components/Forms/LogInForm';
+import SignUpForm from '../../Components/Forms/SignUpForm';
 import { connect } from 'react-redux';
 
 class App extends Component {
@@ -37,11 +37,8 @@ class App extends Component {
         <Route exact path='/my-collection' render={() => <Container displayType={"favorites"}/>}/>
         <Route path='/albums/:id' render={({ match }) => {
           let foundAlbum = this.props.albums.find(album => {
-            console.log('albums is ', album);
             return album.collectionId == match.params.id
           });
-          
-          console.log(foundAlbum)
           return <CardDetails 
             key={foundAlbum.collectionId}
             artist_name={foundAlbum.artistName}
@@ -54,10 +51,8 @@ class App extends Component {
         }} />
         <Route path='/favorites/:id' render={({ match }) => {
           let foundAlbum = this.props.favorites.find(favorite => {
-            console.log('favorites is: ', favorite);
             return favorite.album_id == match.params.id
           });
-          console.log(foundAlbum)
           return <CardDetails 
           key={foundAlbum.album_id}
           artist_name={foundAlbum.artist_name}
