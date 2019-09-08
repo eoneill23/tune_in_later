@@ -1,11 +1,11 @@
 import React, { Component }  from 'react';
 import './App.css';
-import SearchForm from '../../Components/Forms/SearchForm'
-import Container from '../../Components/CardContainer/Container';
 import { Route, Link } from 'react-router-dom';
-import CardDetails from '../../Components/CardDetails/CardDetails'
-import LogInForm from '../../Components/Forms/LogInForm';
-import SignUpForm from '../../Components/Forms/SignUpForm';
+import SearchForm from '../Forms/SearchForm/SearchForm';
+import CardContainer from '../CardContainer/CardContainer';
+import CardDetails from '../../Components/CardDetails/CardDetails';
+import LogInForm from '../Forms/LogInForm/LogInForm';
+import SignUpForm from '../Forms/SignUpForm/SignUpForm';
 import { connect } from 'react-redux';
 
 class App extends Component {
@@ -14,10 +14,12 @@ class App extends Component {
     return (
       <section className="App">
         <header>
-          <article className="headerContents">
-          <h1>TuneIn Later</h1>
-          <img src={require('./headphones.svg')} alt=""/>
-          </article>
+          <Link to={'/'} className='header-link'>
+            <div className="headerContents">
+            <h1>TuneIn Later</h1>
+            <img src={require('./headphones.svg')} alt=""/>
+            </div>
+          </Link>
           {!this.props.user && 
           <article className="buttonContainer">
             <Link to="/login">
@@ -33,8 +35,8 @@ class App extends Component {
         <Route exact path='/signup' render={() => <SignUpForm />} />
         <Route exact path='/' render={() => <SearchForm />} />
         <Route exact path='/login' render={() => <LogInForm />} />
-        <Route exact path='/' render={() => <Container displayType={'albums'}/>} />
-        <Route exact path='/my-collection' render={() => <Container displayType={"favorites"}/>}/>
+        <Route exact path='/' render={() => <CardContainer displayType={'albums'}/>} />
+        <Route exact path='/my-collection' render={() => <CardContainer displayType={"favorites"}/>}/>
         <Route path='/albums/:id' render={({ match }) => {
           let foundAlbum = this.props.albums.find(album => {
             return album.collectionId == match.params.id

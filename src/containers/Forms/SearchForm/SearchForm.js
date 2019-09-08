@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { fetchAlbums } from '../../util/apiCalls';
-import { addAlbums } from '../../actions/index';
+import { fetchAlbums } from '../../../util/apiCalls';
+import { addAlbums } from '../../../actions/index';
 import { connect } from 'react-redux';
-import '../Forms/SearchForm.css'
+import './SearchForm.css'
 
 class SearchForm extends Component {
 	constructor() {

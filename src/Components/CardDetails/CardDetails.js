@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import './CardDetails.css';
 
-const CardDetails = ({  artist_name, album_name, artwork_url, release_date,  primary_genre_name, returnRoute}) => {
-  console.log('HERE IS THE RETURN ROUTE', returnRoute)
+const CardDetails = ({ artist_name, album_name, artwork_url, release_date,  primary_genre_name, returnRoute }) => {
   return (
     <div>
       <Link to={`${returnRoute}`} className='back-btn'>◀ back</Link>

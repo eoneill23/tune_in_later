@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../Card/Card';
-import './Container.css';
+import './CardContainer.css';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
