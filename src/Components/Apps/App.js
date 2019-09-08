@@ -13,6 +13,9 @@ class App extends Component {
   render() {
     return (
       <section className="App">
+        <header>
+          <h1>TuneIn Later</h1>
+        </header>
         <Route exact path='/signup' render={() => <SignUpForm />} />
         <Route exact path='/' render={() => <SearchForm />} />
         <Route exact path='/login' render={() => <LogInForm />} />
