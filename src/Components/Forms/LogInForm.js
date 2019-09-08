@@ -34,7 +34,7 @@ class LogInForm extends Component {
 		fetchUser(user)
 		.then(user => this.props.validUser(user))
 		.then(data => data.user.id ? fetchUserFavorites(data.user.id) : null)
-    .then(data => getUserFavorites(data.favorites))
+    .then(data => this.props.getUserFavorites(data.favorites))
 		.catch(error => this.setState({error}))
 	}
 
@@ -82,7 +82,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-	validUser: (user) => dispatch(validUser(user))
+    validUser: (user) => dispatch(validUser(user)),
+    getUserFavorites: (favorites) => dispatch(getUserFavorites(favorites))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogInForm);
