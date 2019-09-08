@@ -38,7 +38,7 @@ class SignUpForm extends Component {
 	userLogin = (user) => {
 		addUser(user)
 		.then(user => this.props.validUser(user))
-    	.catch(error => this.setState({error}))
+    .catch(error => this.setState({error}))
 	}
 
 	clearInputs = () => {

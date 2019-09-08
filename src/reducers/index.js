@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
-import { userReducer } from '../reducers/userStatus';
-import { albumsReducer } from '../reducers/addAlbums';
-import { invalidUserReducer } from  '../reducers/invalidUser';
-import { favoritesReducer } from '../reducers/addFavorite';
+import { userReducer } from '../reducers/userReducer';
+import { albumsReducer } from '../reducers/albumsReducer';
+import { errorReducer} from  '../reducers/errorReducer';
+import { favoritesReducer } from '../reducers/favoritesReducer';
 
 const rootReducer = combineReducers({
   albums: albumsReducer,
   user: userReducer,
-  invalidUser: invalidUserReducer,
+  error: errorReducer,
   favorites: favoritesReducer
 })
 
