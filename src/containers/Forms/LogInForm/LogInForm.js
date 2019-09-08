@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { fetchUser, fetchUserFavorites } from '../../util/apiCalls';
-import { validUser, getUserFavorites } from '../../actions/index';
+import { fetchUser, fetchUserFavorites } from '../../../util/apiCalls';
+import { validUser, getUserFavorites } from '../../../actions/index';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import './LogInForm.css'

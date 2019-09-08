@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { addUser } from '../../util/apiCalls';
-import { validUser } from '../../actions/index';
+import { addUser } from '../../../util/apiCalls';
+import { validUser } from '../../../actions/index';
 import { connect } from 'react-redux';
 import { Redirect} from 'react-router-dom'
 import './SignUpForm.css'
@@ -38,7 +38,7 @@ class SignUpForm extends Component {
 	userLogin = (user) => {
 		addUser(user)
 		.then(user => this.props.validUser(user))
-    	.catch(error => this.setState({error}))
+    .catch(error => this.setState({error}))
 	}
 
 	clearInputs = () => {
