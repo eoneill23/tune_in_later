@@ -4,10 +4,11 @@ import './Container.css';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const Container = ({albums, user, favorites}) => {
+const Container = ({albums, user, favorites, displayType}) => {
+  console.log('first displayType is', displayType, favorites);
 
   let cards
-  if(albums !== undefined) {
+  if(displayType === 'albums') {
     cards = albums.map(album => {
       return <Card
         album_id={album.collectionId}
@@ -20,7 +21,22 @@ const Container = ({albums, user, favorites}) => {
         content_advisory_rating={album.contentAdvisoryRating || 'notExplicit'}
         primary_genre_name={album.primaryGenreName}
         user = {user}
-        isFavorite={false}
+      />
+  })
+} else if(displayType === 'favorites') {
+  console.log('2nd displayType is', displayType, favorites);
+    cards = favorites.map(album => {
+      return <Card
+        album_id={album.album_id}
+        key={album.album_id}
+        artist_name={album.artist_name}
+        album_name={album.album_name}
+        price={album.price}
+        artwork_url={album.artwork_url}
+        release_date={album.release_date}
+        content_advisory_rating={album.content_advisory_rating || 'notExplicit'}
+        primary_genre_name={album.primary_genre_name}
+        user = {user}
       />
   })
   } else {
@@ -29,7 +45,7 @@ const Container = ({albums, user, favorites}) => {
   } 
   return (
     <section className='Container'>
-      {user && <NavLink to='/my-container'>View Favorites | {favorites.length}</NavLink>}
+      {user && <NavLink to='/my-collection'>View Favorites | {favorites.length}</NavLink>}
       {cards}
     </section>
   )
