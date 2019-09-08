@@ -62,14 +62,14 @@ class LogInForm extends Component {
 					value={this.state.password}
 					onChange={this.handleChange}
 					required/>
-					<button 
+					<button className="loginUser"
 						onClick={event => this.handleSubmit(event)}
 					>
 						Submit
 					</button>
 				</form>
 				<p>Are you a new user? <Link to="/signup">Sign Up Here</Link></p>
-				{this.state.error && <p>The email and/or password do not match an existing user.</p>}
+				{this.state.error && <p id="error">The email and/or password do not match an existing user.</p>}
 			</article>
 		)
 	}

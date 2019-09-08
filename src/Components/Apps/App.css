@@ -2,12 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Permanent Marker', cursive;
 }
 
 header {
   height: 175px;
   width: 100%;
-  font-family: 'Permanent Marker', cursive;
   font-size: 3em;
   background-color: #596743;
   color: #F4E697;
@@ -30,12 +30,12 @@ img {
 text-align: center;
 }
 
-button {
+#newUser-button, #existingUser-button {
   font-size: 20px;
   color: #F4E697;
   background-color: transparent;
-  border: none;
   background-position: center;
+  border: none;
   margin-right: 30px;
 }
 
@@ -48,3 +48,5 @@ button {
 body {
   background-color: #384150
 }
+
+

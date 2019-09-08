@@ -22,11 +22,11 @@ class App extends Component {
           <article className="buttonContainer">
             <Link to="/login">
             <img id="existingUser" src={require('./user-silhouette.svg')} alt=""/>
-            <button>LogIn</button>
+            <button id="existingUser-button">LogIn</button>
             </Link>
             <Link to="/signup">
             <img id="newUser" src={require('./new-user.svg')} alt=""/>
-            <button>SignUp</button>
+            <button id="newUser-button">SignUp</button>
             </Link>
           </article>}
         </header>

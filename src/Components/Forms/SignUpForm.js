@@ -10,7 +10,7 @@ class SignUpForm extends Component {
 	constructor() {
 		super();
 		this.state = {
-      name: "",
+      		name: "",
 			email: "",
 			password: "",
 			error: ""
@@ -31,13 +31,14 @@ class SignUpForm extends Component {
 		}
 		this.userLogin(user);
 		this.clearInputs();
+		
 
 	}
 
 	userLogin = (user) => {
 		addUser(user)
 		.then(user => this.props.validUser(user))
-    .catch(error => this.setState({error}))
+    	.catch(error => this.setState({error}))
 	}
 
 	clearInputs = () => {
@@ -73,13 +74,13 @@ class SignUpForm extends Component {
 					value={this.state.password}
 					onChange={this.handleChange}
 					required/>
-					<button 
+					<button className="addUser"
 						onClick={event => this.handleSubmit(event)}
 					>
 						Submit
 					</button>
 				</form>
-				{this.state.error && <p>This user already exists.</p>}
+				{this.state.error && <p id="error">This user already exists.</p>}
 			</article>
 		)
 	}

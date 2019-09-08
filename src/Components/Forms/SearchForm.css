@@ -1,11 +1,9 @@
 * {
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Permanent Marker', cursive;
 }
 
 button {
-    font-family: 'Permanent Marker', cursive;
     background-color: transparent;
-    border: none;
-    background-position: center;
 }

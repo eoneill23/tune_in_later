@@ -22,3 +22,17 @@ input {
     border-radius: 15px;
     padding: 5px;
 }
+
+.addUser {
+    font-size: 40px;
+    border-radius: 15px;
+}
+
+.addUser:hover {
+    border: 2px solid #CC7B3A;
+}
+
+#error {
+    font-size: 15px;
+    color: red;
+}

@@ -22,3 +22,13 @@ input {
     border-radius: 15px;
     padding: 5px;
 }
+
+.loginUser {
+    font-size: 40px;
+    border-radius: 15px;
+}
+
+#error {
+    font-size: 15px;
+    color: red;
+}
