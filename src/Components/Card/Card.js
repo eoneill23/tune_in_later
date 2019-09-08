@@ -6,7 +6,6 @@ import { postFavorite } from '../../util/apiCalls';
 
 const Card = ({ album_id, artist_name, album_name, artwork_url, release_date, content_advisory_rating, primary_genre_name, user, addFavorite, invalidUser, isFavorite }) => {
 	const isUserLoggedIn = (e) => {
-		console.log("Only valid user can save favorites.")
 		e.preventDefault()
 		return user ? toggleFavorite() : invalidUser();
 	}
@@ -15,7 +14,10 @@ const Card = ({ album_id, artist_name, album_name, artwork_url, release_date, co
 		if(isFavorite) {
 
 		} else {
-	postFavorite({}, user.userId)
+			const albumData = {album_id, artist_name, album_name, artwork_url, release_date, content_advisory_rating, primary_genre_name}
+			postFavorite(albumData, user.id)
+			.then(data => console.log(data))
+			.catch(error => console.log(error))
 
 		}
 	

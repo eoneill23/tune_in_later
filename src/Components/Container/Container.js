@@ -17,7 +17,6 @@ const Container = ({albums, user, getUserFavorites}) => {
   let cards
   if(albums !== undefined) {
     cards = albums.map(album => {
-      console.log('album is', album);
       return <Card
         album_id={album.collectionId}
         key={album.collectionId}

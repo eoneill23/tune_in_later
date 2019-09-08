@@ -67,6 +67,7 @@ export const fetchUserFavorites = (id) => {
 
 //albumfavorites requires: album_id (Integer), artist_name (String), album_name (String), artwork
 export const postFavorite = (card, id) => {
+  console.log(card)
   const options = {
     method: 'POST',
     body: JSON.stringify(card),
@@ -75,7 +76,7 @@ export const postFavorite = (card, id) => {
     }
   }
 
-  fetch(`http://localhost:3001/api/v1/users/${id}/albumfavorites`)
+  return fetch(`http://localhost:3001/api/v1/users/${id}/albumfavorites`, options)
   .then(response => {
     if (!response.ok) {
       throw Error('There was an issue adding your favorite.')
@@ -84,6 +85,7 @@ export const postFavorite = (card, id) => {
     return response.json()
   })
   .catch(error => {
-    throw Error('There was an issue adding your favorite.')
+    console.log(error)
+    // throw Error('There was an issue adding your favorite.')
   })
 }
