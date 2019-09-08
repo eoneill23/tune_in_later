@@ -11,13 +11,13 @@ const Card = ({ album_id, artist_name, album_name, artwork_url, release_date, co
 	}
 
 	const toggleFavorite = () => {
-		isFavorite = favorites.map(favorite => favorite.id).includes(album_id)
+		let isFavorite = favorites.map(favorite => favorite.user_id).includes(user.id);
 		if(isFavorite) {
-			deleteFavorite(album_id)
+			deleteFavorite(album_id, user.id)
 		} else {
 			const albumData = {album_id, artist_name, album_name, artwork_url, release_date, content_advisory_rating, primary_genre_name}
 			postFavorite(albumData, user.id)
-			.then(data => addFavorite(data))
+			.then(favorite => addFavorite(favorite))
 			.catch(error => console.log(error))
 
 		}
@@ -33,12 +33,12 @@ const Card = ({ album_id, artist_name, album_name, artwork_url, release_date, co
 	)
 }
 const mapStateToProps = (state) => ({
-favorites: state.favorites
+	favorites: state.favorites
 })
 
 const mapDispatchToProps = dispatch => ({
-	addFavorite: () => dispatch(addFavorite()),
+	addFavorite: (favorite) => dispatch(addFavorite(favorite)),
 	invalidUser: () => dispatch(invalidUser())
 });
 
-export default connect(null, mapDispatchToProps)(Card)
+export default connect(mapStateToProps	, mapDispatchToProps)(Card)

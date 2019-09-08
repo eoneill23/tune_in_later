@@ -8,9 +8,9 @@ export const validUser = (user) => ({
 	user
 });
 
-export const addFavorite = (id) => ({
+export const addFavorite = (newFavorite) => ({
 	type: 'ADD_FAVORITE',
-	id
+	newFavorite
 });
 
 export const invalidUser = () => ({
