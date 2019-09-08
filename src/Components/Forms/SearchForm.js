@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fetchAlbums } from '../../util/apiCalls';
 import { addAlbums } from '../../actions/index';
 import { connect } from 'react-redux';
+import '../Forms/SearchForm.css'
 
 class SearchForm extends Component {
 	constructor() {
@@ -38,7 +39,11 @@ class SearchForm extends Component {
 		return (
 		<section className="SearchFormContainer">
 			{this.props.invalidUser && <p>Hey</p>}
-			{!this.props.user && <header> <button>LogIn</button> <button>SignUp</button> </header>}
+			{!this.props.user && 
+			<article className="buttonContainer">
+				<button id="newUser">LogIn</button>
+				<button id="existingUser">SignUp</button>
+			</article>}
 			<form className="SearchForm">
 					<input
 					type = "text"

@@ -15,6 +15,7 @@ class App extends Component {
       <section className="App">
         <header>
           <h1>TuneIn Later</h1>
+          <img src={require('./headphones.svg')} alt=""/>
         </header>
         <Route exact path='/signup' render={() => <SignUpForm />} />
         <Route exact path='/' render={() => <SearchForm />} />
