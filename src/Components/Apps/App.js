@@ -33,8 +33,8 @@ class App extends Component {
         <Route exact path='/signup' render={() => <SignUpForm />} />
         <Route exact path='/' render={() => <SearchForm />} />
         <Route exact path='/login' render={() => <LogInForm />} />
-        <Route exact path='/' render={() => <Container/>} />
-        <Route exact path='/my-collection' render={() => <Container/>}/>
+        <Route exact path='/' render={() => <Container displayType={'albums'}/>} />
+        <Route exact path='/my-collection' render={() => <Container displayType={"favorites"}/>}/>
       </section>
       );
     }
