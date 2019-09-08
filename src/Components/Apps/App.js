@@ -43,24 +43,30 @@ class App extends Component {
           
           console.log(foundAlbum)
           return <CardDetails 
-            album_id={foundAlbum.collectionId}
             key={foundAlbum.collectionId}
             artist_name={foundAlbum.artistName}
             album_name={foundAlbum.collectionName}
-            price={foundAlbum.collectionPrice}
             artwork_url={foundAlbum.artworkUrl100}
             release_date={foundAlbum.releaseDate}
-            content_advisory_rating={foundAlbum.contentAdvisoryRating || 'notExplicit'}
             primary_genre_name={foundAlbum.primaryGenreName}
             returnRoute={'/'} 
             />
         }} />
         <Route path='/favorites/:id' render={({ match }) => {
           let foundAlbum = this.props.favorites.find(favorite => {
-            return favorite.id == match.params.id
+            console.log('favorites is: ', favorite);
+            return favorite.album_id == match.params.id
           });
           console.log(foundAlbum)
-          return <CardDetails {...foundAlbum} returnRoute={'/my-collection'} />
+          return <CardDetails 
+          key={foundAlbum.album_id}
+          artist_name={foundAlbum.artist_name}
+          album_name={foundAlbum.collection_name}
+          artwork_url={foundAlbum.artwork_url}
+          release_date={foundAlbum.release_date}
+          primary_genre_name={foundAlbum.primary_genre_name}
+          returnRoute={'/my-collection'} 
+          />
         }} />
       </section>
       );
