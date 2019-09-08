@@ -37,7 +37,7 @@ const Container = ({albums, user, getUserFavorites}) => {
   } 
   return (
     <section className='Container'>
-      {user && <NavLink onClick={() => getFavorites()} to='/my-container'>View Favorites</NavLink>}
+      {user && <NavLink onClick={() => getFavorites()} to='/my-container'>View Favorites()</NavLink>}
       {cards}
     </section>
   )
