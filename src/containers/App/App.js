@@ -18,6 +18,7 @@ class App extends Component {
             <div className="headerContents">
             <h1>TuneIn Later</h1>
             <img src={require('./headphones.svg')} alt=""/>
+          <Link to='/'>Home</Link>
             </div>
           </Link>
           {!this.props.user && 
