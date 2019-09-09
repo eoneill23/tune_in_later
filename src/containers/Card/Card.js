@@ -29,9 +29,18 @@ const Card = ({ album_id, artist_name, album_name, artwork_url, release_date, co
 
  	return (
 		<article className={cardClassName}>
-				<Link to={`/${routeType}/${album_id}`}><img src={artwork_url} alt="Album cover art" /></Link>
+			<Link to={`/${routeType}/${album_id}`}>
+				<img src={artwork_url} alt="Album cover art" />
+			</Link>
 			<h2>{album_name}</h2>
-			<button onClick={(e) => isUserLoggedIn(e)}>Save For Later</button>
+			{!isFavorite ? <article className="favorite">
+			<img id="notFavorite" src={require('./notFavorite.svg')} alt="" onClick={(e) => isUserLoggedIn(e)}/> 
+			<button id="notFavorite-button" onClick={(e) => isUserLoggedIn(e)}>Add Favorite</button> 
+			</article> :
+			<article className="favorite">
+			<img id="isFavorite" src={require('./isFavorite.svg')} alt="" onClick={(e) => isUserLoggedIn(e)}/> 
+			<button id="isFavorite-button" onClick={(e) => isUserLoggedIn(e)}>Remove Favorite</button>
+			</article>}
 		</article>
 	)
 }

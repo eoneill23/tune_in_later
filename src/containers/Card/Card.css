@@ -1,33 +1,42 @@
-.Card {
-  height: 300px;
+.Card, .favoriteCard {
+  height: 350px;
   width: 300px;
-  background-color: bisque;
+  background-color: #F4E697;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
-  border: 2px solid black;
+  border: 4px solid #544061;
   margin-bottom: 10px;
-}
-
-.favoriteCard {
-  height: 300px;
-  width: 300px;
-  background-color: red;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-direction: column;
-  border: 2px solid black;
-  margin-bottom: 10px;
+  border-radius: 15px;
+  opacity: .8;
 }
 
 img {
     object-fit: cover;
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
 }
 
 h2 {
   padding: 10px;
+  align-self: auto;
+}
+
+button {
+  background-color: transparent;
+  background-position: center;
+  border: none;
+}
+
+.favorite {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#isFavorite, #notFavorite {
+  height: auto;
+  width: 15%;
 }

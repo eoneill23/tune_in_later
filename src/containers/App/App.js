@@ -17,7 +17,7 @@ class App extends Component {
           <Link to={'/'} className='header-link'>
             <div className="headerContents">
             <h1>TuneIn Later</h1>
-            <img src={require('./headphones.svg')} alt=""/>
+            <img id="headphones" src={require('./headphones.svg')} alt=""/>
             </div>
           </Link>
           {!this.props.user ? 
@@ -34,6 +34,7 @@ class App extends Component {
             : 
             <article className="buttonContainer">
             <Link to="/my-collection">
+              <img id="viewFavorites" src={require('./vinyl.svg')} alt=""/>
               <button id="viewFavorites-button">View Favorites({this.props.favorites.length})</button>
             </Link>
             <Link to="/">
