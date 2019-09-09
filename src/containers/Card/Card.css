@@ -1,4 +1,4 @@
-.Card, .favoriteCard {
+.Card {
   height: 350px;
   width: 300px;
   background-color: #F4E697;
@@ -12,15 +12,30 @@
   opacity: .8;
 }
 
+.favoriteCard {
+  height: 350px;
+  width: 300px;
+  background-color: #F4E697;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  opacity: .8;
+  border: 4px solid #B54036;
+}
+
 img {
     object-fit: cover;
     height: 150px;
     width: 150px;
 }
 
-h2 {
+h3 {
   padding: 10px;
   align-self: auto;
+  text-align: center;
 }
 
 button {

@@ -22,7 +22,7 @@ class SearchForm extends Component {
       name: this.state.artist
     };
     this.searchArtist(queryArtist);
-    this.clearInputs();
+	this.clearInputs();
   };
 
   clearInputs = () => {
@@ -38,9 +38,6 @@ class SearchForm extends Component {
   render() {
     return (
       <section className="SearchFormContainer">
-        {this.props.invalidUser && (
-          <p>Please Login or Signup to Add a Favorite</p>
-        )}
         <form className="SearchForm">
           <input
             type="text"
@@ -51,7 +48,7 @@ class SearchForm extends Component {
           />
           <button
             id="search-button"
-            onClick={event => this.handleSubmit(event)}
+			onClick={event => this.handleSubmit(event)}
           >
             Search
           </button>

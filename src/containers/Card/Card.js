@@ -32,8 +32,9 @@ const Card = ({ album_id, artist_name, album_name, artwork_url, release_date, co
 			<Link to={`/${routeType}/${album_id}`}>
 				<img src={artwork_url} alt="Album cover art" />
 			</Link>
-			<h2>{album_name}</h2>
-			{!isFavorite ? <article className="favorite">
+			<h3>{album_name}</h3>
+			{!isFavorite ? 
+			<article className="favorite">
 			<img id="notFavorite" src={require('./notFavorite.svg')} alt="" onClick={(e) => isUserLoggedIn(e)}/> 
 			<button id="notFavorite-button" onClick={(e) => isUserLoggedIn(e)}>Add Favorite</button> 
 			</article> :
@@ -45,7 +46,7 @@ const Card = ({ album_id, artist_name, album_name, artwork_url, release_date, co
 	)
 }
 const mapStateToProps = (state) => ({
-	favorites: state.favorites
+	favorites: state.favorites,
 })
 
 const mapDispatchToProps = dispatch => ({
