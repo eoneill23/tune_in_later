@@ -6,17 +6,25 @@
 }
 
 header {
-  height: 175px;
+  height: 225px;
   width: 100%;
   font-size: 3em;
   background-color: #596743;
   color: #F4E697;
 }
 
+#headphones {
+  margin-left: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #F4E697;
+}
+
 img {
   height: 45px;
   width: 5%;
-  margin-left: 10px;
 }
 
 .headerContents {
@@ -28,9 +36,12 @@ img {
 
 .buttonContainer {
 text-align: center;
+display: flex;
+justify-content: center;
+margin: auto;
 }
 
-#newUser-button, #existingUser-button {
+#newUser-button, #existingUser-button, #logoutUser-button, #viewFavorites-button {
   font-size: 20px;
   color: #F4E697;
   background-color: transparent;
@@ -39,7 +50,7 @@ text-align: center;
   margin-right: 30px;
 }
 
-#newUser, #existingUser {
+#newUser, #existingUser, #logoutUser, #viewFavorites {
   height: auto;
   width: 3%;
   margin-right: 8px;

@@ -17,21 +17,31 @@ class App extends Component {
           <Link to={'/'} className='header-link'>
             <div className="headerContents">
             <h1>TuneIn Later</h1>
-            <img src={require('./headphones.svg')} alt=""/>
-          <Link to='/'>Home</Link>
+            <img id="headphones" src={require('./headphones.svg')} alt=""/>
             </div>
           </Link>
-          {!this.props.user && 
+          {!this.props.user ? 
           <article className="buttonContainer">
-            <Link to="/login">
-            <img id="existingUser" src={require('./user-silhouette.svg')} alt=""/>
-            <button id="existingUser-button">LogIn</button>
+              <Link to="/login">
+                <img id="existingUser" src={require('./user-silhouette.svg')} alt=""/>
+                <button id="existingUser-button">LogIn</button>
+              </Link>
+              <Link to="/signup">
+                <img id="newUser" src={require('./new-user.svg')} alt=""/>
+                <button id="newUser-button">SignUp</button>
+              </Link>
+            </article>
+            : 
+            <article className="buttonContainer">
+            <Link to="/my-collection">
+              <img id="viewFavorites" src={require('./vinyl.svg')} alt=""/>
+              <button id="viewFavorites-button">View Favorites({this.props.favorites.length})</button>
             </Link>
-            <Link to="/signup">
-            <img id="newUser" src={require('./new-user.svg')} alt=""/>
-            <button id="newUser-button">SignUp</button>
-            </Link>
-          </article>}
+            <Link to="/">
+              <img id="logoutUser" src={require('./logout.svg')} alt=""/>
+              <button id="logoutUser-button" onClick="window.location.reload();">Logout</button>
+              </Link>
+            </article>}
         </header>
         <Route exact path='/signup' render={() => <SignUpForm />} />
         <Route exact path='/' render={() => <SearchForm />} />

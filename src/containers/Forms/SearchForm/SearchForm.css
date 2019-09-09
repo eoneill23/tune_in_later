@@ -4,6 +4,11 @@
     font-family: 'Permanent Marker', cursive;
 }
 
-button {
+#search-button {
+    font-size: 30px;
+    color: #F4E697;
     background-color: transparent;
+    background-position: center;
+    border: none;
+    margin-right: 30px;
 }

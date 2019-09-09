@@ -1,10 +1,9 @@
 import React from 'react';
 import Card from '../Card/Card';
 import './CardContainer.css';
-import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const Container = ({albums, user, favorites, displayType}) => {
+const Container = ({albums, user, favorites, error, displayType}) => {
 
   let cards
   if(displayType === 'albums') {
@@ -45,7 +44,6 @@ const Container = ({albums, user, favorites, displayType}) => {
   } 
   return (
     <section className='Container'>
-      {user && <NavLink to='/my-collection'>View Favorites | {favorites.length}</NavLink>}
       {cards}
     </section>
   )
