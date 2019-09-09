@@ -45,4 +45,4 @@ const mapDispatchToProps = dispatch => ({
 	removeFavoriteFromStore: (album_id) => dispatch(removeFavoriteFromStore(album_id))
 });
 
-export default connect(mapStateToProps	, mapDispatchToProps)(Card)
+export default connect(mapStateToProps, mapDispatchToProps)(Card)

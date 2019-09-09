@@ -13,6 +13,11 @@ header {
   color: #F4E697;
 }
 
+a {
+  text-decoration: none;
+  color: #F4E697;
+}
+
 img {
   height: 45px;
   width: 5%;
@@ -30,7 +35,7 @@ img {
 text-align: center;
 }
 
-#newUser-button, #existingUser-button {
+#newUser-button, #existingUser-button, #logoutUser {
   font-size: 20px;
   color: #F4E697;
   background-color: transparent;

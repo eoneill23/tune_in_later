@@ -45,7 +45,7 @@ const Container = ({albums, user, favorites, displayType}) => {
   } 
   return (
     <section className='Container'>
-      {user && <NavLink to='/my-collection'>View Favorites | {favorites.length}</NavLink>}
+      {/* {user && <NavLink to='/my-collection'>View Favorites | {favorites.length}</NavLink>} */}
       {cards}
     </section>
   )

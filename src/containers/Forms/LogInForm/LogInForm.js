@@ -70,7 +70,7 @@ class LogInForm extends Component {
 						Submit
 					</button>
 				</form>
-				<p>Are you a new user? <Link to="/signup">Sign Up Here</Link></p>
+				<p>Are you a new user? <Link to="/signup">Click here to sign up!</Link></p>
 				{this.state.error && <p id="error">The email and/or password do not match an existing user.</p>}
 			</article>
 		)
