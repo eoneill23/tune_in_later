@@ -32,9 +32,15 @@ class App extends Component {
               </Link>
             </article>
             : 
-                <article className="buttonContainer">
-                <Link to="/"><button id="logoutUser" onClick="window.location.reload();">Logout</button></Link>
-                </article>}
+            <article className="buttonContainer">
+            <Link to="/my-collection">
+              <button id="viewFavorites-button">View Favorites({this.props.favorites.length})</button>
+            </Link>
+            <Link to="/">
+              <img id="logoutUser" src={require('./logout.svg')} alt=""/>
+              <button id="logoutUser-button" onClick="window.location.reload();">Logout</button>
+              </Link>
+            </article>}
         </header>
         <Route exact path='/signup' render={() => <SignUpForm />} />
         <Route exact path='/' render={() => <SearchForm />} />

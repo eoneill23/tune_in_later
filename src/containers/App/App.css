@@ -33,9 +33,11 @@ img {
 
 .buttonContainer {
 text-align: center;
+display: flex;
+justify-content: center;
 }
 
-#newUser-button, #existingUser-button, #logoutUser {
+#newUser-button, #existingUser-button, #logoutUser-button, #viewFavorites-button {
   font-size: 20px;
   color: #F4E697;
   background-color: transparent;
@@ -44,7 +46,7 @@ text-align: center;
   margin-right: 30px;
 }
 
-#newUser, #existingUser {
+#newUser, #existingUser, #logoutUser {
   height: auto;
   width: 3%;
   margin-right: 8px;
