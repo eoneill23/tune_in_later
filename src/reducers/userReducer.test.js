@@ -6,7 +6,6 @@ describe('userReducer', () => {
     const expected = null;
     const result = userReducer(undefined, mockAction);
 
-    //Expectation
     expect(result).toEqual(expected);
   });
 
@@ -17,10 +16,8 @@ describe('userReducer', () => {
       name: 'Inigo Montoya',
       email: 'dreadpirateroberts@gmail.com'
     }
-    const expected = null;
     const result = userReducer(mockState, mockAction);
 
-    //Expectation
     expect(result).toEqual(mockState);
   });
 
@@ -31,10 +28,8 @@ describe('userReducer', () => {
       name: 'Inigo Montoya',
       email: 'dreadpirateroberts@gmail.com'
     }
-    const expected = null;
     const result = userReducer(mockState, mockAction);
 
-    //Expectation
     expect(result).toEqual(mockState);
   });
 })

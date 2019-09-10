@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 export const addAlbums = (albums) => ({
 	type: 'ADD_ALBUMS',
 	albums

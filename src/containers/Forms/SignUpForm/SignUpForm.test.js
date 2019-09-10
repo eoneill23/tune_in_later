@@ -1,7 +1,7 @@
 import React from 'react';
 import { SignUpForm,  mapStateToProps, mapDispatchToProps } from './SignUpForm';
 import { shallow } from 'enzyme';
-import  { addUser, validUser } from '../../../actions/index';
+import  { validUser } from '../../../actions/index';
 
 describe ('SignUpForm', () => {
   let wrapper, mockUser, mockAddUser, mockValidUser;
@@ -17,13 +17,6 @@ describe ('SignUpForm', () => {
     validUser={mockValidUser}
     />)
   })
-  // const mockUser = {
-  //   name: 'Inigo Montoya',
-  //   email: 'dreadpirateroberts@gmail.com',
-  //   password: 'princess'
-  // }
-  
-
 
   it('should update the state when clearInputs is called', () => {
 
