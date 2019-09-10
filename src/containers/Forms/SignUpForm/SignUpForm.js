@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { addUser } from '../../../util/apiCalls';
 import { validUser } from '../../../actions/index';
 import { connect } from 'react-redux';
 import { Redirect} from 'react-router-dom'
 import './SignUpForm.css'
 
-
 class SignUpForm extends Component {
 	constructor() {
 		super();
 		this.state = {
-      		name: "",
+      name: "",
 			email: "",
 			password: "",
 			error: ""
@@ -96,4 +96,6 @@ const mapDispatchToProps = (dispatch) => ({
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);
 
-
+SignUpForm.propTypes = {
+  user: PropTypes.object.isRequired,
+  }
