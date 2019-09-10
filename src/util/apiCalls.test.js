@@ -213,7 +213,6 @@ describe('postFavorite', () => {
 
     it('should throw and error (SAD) :(', () => {
       expect(postFavorite(mockCard, 1)).rejects.toEqual(Error('There was an issue adding your favorite.'));
-      message: 'There was an issue adding your favorite.'
     });
   }); 
 });
