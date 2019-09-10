@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Card, mapStateToProps, mapDispatchToProps } from './Card';
 import { deleteFavorite, postFavorite } from '../../util/apiCalls';
+import { addFavorite, invalidUser, removeFavoriteFromStore} from '../../actions/index';
 
 describe('Card', () => {
   let albumWrapper, favoriteWrapper, newFavoriteWrapper, mockUser, mockAddFavorite, mockInvalidUser, mockFavorites, mockRemoveFavoriteFromStore;
@@ -176,5 +177,48 @@ describe('mapStateToProps', () => {
 });
 
 describe('mapDispatchToProps', () => {
-  
-})
+  it('should call dispatch with an addFavorite', () => {
+
+    const mockFavorite = {
+      album_id: 626204707,
+      artist_name: 'Beyoncé',
+      album_name: '4 (Expanded Edition)',
+      price: 11.99,
+      artwork_url: 'https://is2-ssl.mzstatic.com/image/thumb/Music6/v4/17/84/3a/17843a6d-1f2b-7e1e-a39f-3ff865110993/source/100x100bb.jpg',
+      release_date: '2013-12-13T08:00:00Z',
+      content_advisory_rating: 'Explicit',
+      primary_genre_name: 'Pop',
+    }
+    
+    const mockDispatch = jest.fn();
+    const actionToDispatch = addFavorite(mockFavorite);
+
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    mappedProps.addFavorite(mockFavorite);
+    
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+  });
+
+  it('should call dispatch with invalidUser', () => {
+    
+    const mockDispatch = jest.fn();
+    const actionToDispatch = invalidUser();
+
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    mappedProps.invalidUser();
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+  });
+
+  it('should call dispatch with removeFavoriteFromStore', () => {
+    
+    const mockAlbum_id = 626204707;
+    const mockDispatch = jest.fn();
+    const actionToDispatch = removeFavoriteFromStore(mockAlbum_id);
+
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    mappedProps.removeFavoriteFromStore(mockAlbum_id);
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+  })
+});
