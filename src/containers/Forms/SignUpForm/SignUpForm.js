@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { Redirect} from 'react-router-dom'
 import './SignUpForm.css'
 
-class SignUpForm extends Component {
+export class SignUpForm extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -31,8 +31,6 @@ class SignUpForm extends Component {
 		}
 		this.userLogin(user);
 		this.clearInputs();
-		
-
 	}
 
 	userLogin = (user) => {
@@ -97,5 +95,5 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);
 
 SignUpForm.propTypes = {
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object,
   }
