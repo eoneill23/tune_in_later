@@ -4,6 +4,8 @@ import { Card, mapStateToProps, mapDispatchToProps } from './Card';
 import { deleteFavorite, postFavorite } from '../../util/apiCalls';
 import { addFavorite, invalidUser, removeFavoriteFromStore} from '../../actions/index';
 
+jest.mock('../../util/apiCalls')
+
 describe('Card', () => {
   let albumWrapper, favoriteWrapper, newFavoriteWrapper, mockUser, mockAddFavorite, mockInvalidUser, mockFavorites, mockRemoveFavoriteFromStore;
 
@@ -100,8 +102,9 @@ describe('Card', () => {
 
   it('should call deleteFavorite when isFavorite is true', () => {
 
-    favoriteWrapper.toggleFavorite = jest.fn();
-    favoriteWrapper.toggleFavorite();
+    const mockEvent = { preventDefault: jest.fn() }
+
+    favoriteWrapper.find('button').simulate('click', mockEvent)
 
     expect(deleteFavorite).toHaveBeenCalled();
   });
@@ -109,10 +112,9 @@ describe('Card', () => {
   it('should call postFavorite when isFavorite is false', () => {
     const mockEvent = {preventDefault: jest.fn()}
 
-    newFavoriteWrapper.invalidUser = jest.fn();
     newFavoriteWrapper.find('img').at(0).simulate('click', mockEvent);
 
-    expect(newFavoriteWrapper.invalidUser).toHaveBeenCalled();
+    expect(invalidUser).toHaveBeenCalled();
     expect(postFavorite).toHaveBeenCalled();
   });
 
