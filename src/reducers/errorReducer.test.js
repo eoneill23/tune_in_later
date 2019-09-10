@@ -12,5 +12,5 @@ describe('errorReducer', () => {
     let expected = 'Please login to save an album.';
     let result = errorReducer(null, {type: 'INVALID_USER'});
     expect(result).toEqual(expected)
-  })
+  });
 })
