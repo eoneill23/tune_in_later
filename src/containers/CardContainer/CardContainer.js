@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import Card from "../Card/Card";
 import "./CardContainer.css";
 import { connect } from "react-redux";
@@ -65,3 +66,11 @@ export const mapStateToProps = store => ({
 });
 
 export default connect(mapStateToProps)(CardContainer);
+
+CardContainer.propTypes = {
+  albums: PropTypes.array,
+  user: PropTypes.object.isRequired,
+  favorites: PropTypes.array,
+  error: PropTypes.string,
+  displayType: PropTypes.string.isRequired
+}
