@@ -199,36 +199,61 @@ describe('postFavorite', () => {
         json: () => Promise.resolve(mockResponse)
       });
     });
+
+    it('should call fetch with the correct URL', () => {
+      postFavorite(mockCard, 1);
+
+      expect(window.fetch).toHaveBeenCalledWith('http://localhost:3001/api/v1/users/1/albumfavorites', mockOptions);
+    });
+
+    it('should return the correct card (HAPPY) :)', () => {
+      postFavorite(mockCard, 1)
+      .then(results => expect(results).toEqual(mockResponse))
+    });
+
+    it('should throw and error (SAD) :(', () => {
+      expect(postFavorite(mockCard, 1)).rejects.toEqual(Error('There was an issue adding your favorite.'));
+      message: 'There was an issue adding your favorite.'
+    });
+  }); 
+});
+
+describe('deleteFavorite', () => {
+  let mockOptions, mockUserId, mockAlbumId;
+
+  beforeEach(() => {
+    mockUserId = 1;
+    mockAlbumId = 2;
+    mockOptions = { method: "DELETE" };
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true
+      });
+    });
   });
 
-  it('should call fetch with the correct URL', () => {
-    postFavorite(mockCard, 1);
+  it('should call fetch with the correct Url (HAPPY) :)', () => {
+    deleteFavorite(mockAlbumId, mockUserId);
 
-    expect(window.fetch).toHaveBeenCalledWith('http://localhost:3001/api/v1/users/1/albumfavorites', mockOptions);
+    expect(window.fetch).toHaveBeenCalledWith(`http://localhost:3001/api/v1/users/${mockUserId}/albumfavorites/${mockAlbumId}`, mockOptions)
   });
 
-  it('should return the correct card (HAPPY) :)', () => {
-    postFavorite(mockCard, 1)
-    .then(results => expect(results).toEqual(mockResponse))
-  });
-
-  it('should throw and error (SAD) :(', () => {
+  it('should return an error (SAD) :(', () => {
     window.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: false
       })
     });
-
-    expect(postFavorite(mockCard, 1)).rejects.toEqual(Error('There was an issue adding your favorite.'));
+    expect(deleteFavorite(mockUserId, mockAlbumId)).rejects.toEqual({ message: 'There was an issue deleting your favorite. You\'re stuck with it.' });
   });
 
   it('should return an error if the promise rejects (SAD) :(', () => {
     window.fetch = jest.fn().mockImplementation(() => {
       return Promise.reject({
-        message: 'There was an issue adding your favorite.'
+        message: 'There was an issue deleting your favorite. You\'re stuck with it.'
       });
     });
 
-    expect(postFavorite(mockCard, 1)).rejects.toEqual({ message: 'There was an issue adding your favorite.' });
+    expect(deleteFavorite(mockUserId, mockAlbumId)).rejects.toEqual(Error( 'There was an issue deleting your favorite. You\'re stuck with it.' ));
   });
 });
