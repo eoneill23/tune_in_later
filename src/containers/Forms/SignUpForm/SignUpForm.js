@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { addUser } from '../../../util/apiCalls';
 import { validUser } from '../../../actions/index';
 import { connect } from 'react-redux';
 import { Redirect} from 'react-router-dom'
 import './SignUpForm.css'
 
-
-class SignUpForm extends Component {
+export class SignUpForm extends Component {
 	constructor() {
 		super();
 		this.state = {
-      		name: "",
+      name: "",
 			email: "",
 			password: "",
 			error: ""
@@ -31,8 +31,6 @@ class SignUpForm extends Component {
 		}
 		this.userLogin(user);
 		this.clearInputs();
-		
-
 	}
 
 	userLogin = (user) => {
@@ -86,14 +84,16 @@ class SignUpForm extends Component {
 	}
 }
 
-const mapStateToProps = ({user}) => ({
+export const mapStateToProps = ({user}) => ({
 user
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
 	validUser: (user) => dispatch(validUser(user))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);
 
-
+SignUpForm.propTypes = {
+  user: PropTypes.object,
+  }
