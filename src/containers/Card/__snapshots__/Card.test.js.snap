@@ -85,3 +85,46 @@ exports[`Card should match the snapshot with all data passed in correctly 2`] = 
   </article>
 </article>
 `;
+
+exports[`Card should match the snapshot with all data passed in correctly 3`] = `
+<article
+  className="Card"
+>
+  <Link
+    to="/favorites/626204708"
+  >
+    <img
+      alt="Album cover art"
+      src="https://is2-ssl.mzstatic.com/image/thumb/Music6/v4/17/84/3a/17843a6d-1f2b-7e1e-a39f-3ff865110993/source/100x100bb.jpg"
+    />
+  </Link>
+  <h3>
+    4 (Expanded Edition)
+  </h3>
+  <article
+    className="favorite"
+  >
+    <img
+      alt=""
+      id="notFavorite"
+      onClick={[Function]}
+      src={
+        Object {
+          "ReactComponent": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "render": [Function],
+          },
+          "__esModule": true,
+          "default": "notFavorite.svg",
+        }
+      }
+    />
+    <button
+      id="notFavorite-button"
+      onClick={[Function]}
+    >
+      Add Favorite
+    </button>
+  </article>
+</article>
+`;
