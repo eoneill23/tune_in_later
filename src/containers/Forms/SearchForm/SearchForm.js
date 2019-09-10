@@ -3,8 +3,9 @@ import { fetchAlbums } from "../../../util/apiCalls";
 import { addAlbums } from "../../../actions/index";
 import { connect } from "react-redux";
 import "./SearchForm.css";
+import PropTypes from 'prop-types';
 
-class SearchForm extends Component {
+export class SearchForm extends Component {
   constructor() {
     super();
     this.state = {
@@ -65,12 +66,11 @@ class SearchForm extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  user: state.user,
-  invalidUser: state.invalidUser
+export const mapStateToProps = state => ({
+  user: state.user
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   addAlbums: albums => dispatch(addAlbums(albums))
 });
 
@@ -78,3 +78,9 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(SearchForm);
+
+SearchForm.propTypes = {
+  user: PropTypes.object,
+  mapDispatchToProps: PropTypes.func,
+  mapStateToProps: PropTypes.func,
+}

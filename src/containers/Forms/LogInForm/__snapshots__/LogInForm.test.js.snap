@@ -30,7 +30,9 @@ exports[`LogInForm should match the snapshot with all data passed in correctly 1
       Submit
     </button>
   </form>
-  <p>
+  <p
+    id="signup-link"
+  >
     Are you a new user? 
     <Link
       to="/signup"

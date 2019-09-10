@@ -1,32 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CardDetails should match the snapshot with all data passed in correctly 1`] = `
-<div>
+<section
+  className="CardDetails"
+>
   <Link
     className="back-btn"
     to="/"
   >
     ◀ back
   </Link>
-  <h1>
-    HOMECOMING
-  </h1>
-  <h1>
-    Beyonce
-  </h1>
-  <img
-    className="app-img-no-hover"
-    src="https://is2-ssl.mzstatic.com/image/thumb/Music/"
-  />
-  <p
-    className="card-detail-genre"
+  <article
+    id="cardDetails-container"
   >
-    Pop
-  </p>
-  <p
-    className="card-detail-release_date"
-  >
-    2008-10-13T07:00:00Z
-  </p>
-</div>
+    <h1
+      id="album-name"
+    >
+      HOMECOMING
+    </h1>
+    <h2
+      id="artist-name"
+    >
+      Beyonce
+    </h2>
+    <img
+      alt=""
+      className="app-img-no-hover"
+      src="https://is2-ssl.mzstatic.com/image/thumb/Music/"
+    />
+    <p
+      className="card-detail-genre"
+    >
+      Pop
+    </p>
+    <p
+      className="card-detail-release_date"
+    >
+      2008-10-13T07:00:00Z
+    </p>
+  </article>
+</section>
 `;

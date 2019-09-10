@@ -9,6 +9,7 @@ exports[`Card should match the snapshot with all data passed in correctly 1`] = 
   >
     <img
       alt="Album cover art"
+      id="standardCard"
       src="https://is2-ssl.mzstatic.com/image/thumb/Music6/v4/17/84/3a/17843a6d-1f2b-7e1e-a39f-3ff865110993/source/100x100bb.jpg"
     />
   </Link>
@@ -52,6 +53,7 @@ exports[`Card should match the snapshot with all data passed in correctly 2`] = 
   >
     <img
       alt="Album cover art"
+      id="standardCard"
       src="https://is2-ssl.mzstatic.com/image/thumb/Music6/v4/17/84/3a/17843a6d-1f2b-7e1e-a39f-3ff865110993/source/100x100bb.jpg"
     />
   </Link>
@@ -95,6 +97,7 @@ exports[`Card should match the snapshot with all data passed in correctly 3`] = 
   >
     <img
       alt="Album cover art"
+      id="standardCard"
       src="https://is2-ssl.mzstatic.com/image/thumb/Music6/v4/17/84/3a/17843a6d-1f2b-7e1e-a39f-3ff865110993/source/100x100bb.jpg"
     />
   </Link>
