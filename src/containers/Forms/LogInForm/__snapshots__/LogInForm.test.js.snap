@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LogInForm should match the snapshot with all data passed in correctly 1`] = `
+<article
+  className="LogInFormContainer"
+>
+  <form
+    className="LogInForm"
+  >
+    <input
+      name="email"
+      onChange={[Function]}
+      placeholder="Email: "
+      required={true}
+      type="text"
+      value=""
+    />
+    <input
+      name="password"
+      onChange={[Function]}
+      placeholder="Password: "
+      required={true}
+      type="text"
+      value=""
+    />
+    <button
+      className="loginUser"
+      onClick={[Function]}
+    >
+      Submit
+    </button>
+  </form>
+  <p>
+    Are you a new user? 
+    <Link
+      to="/signup"
+    >
+      Click here to sign up!
+    </Link>
+  </p>
+</article>
+`;
