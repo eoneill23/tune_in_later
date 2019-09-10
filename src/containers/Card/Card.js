@@ -60,7 +60,7 @@ export const Card = ({
   return (
     <article className={cardClassName}>
       <Link to={`/${routeType}/${album_id}`}>
-        <img src={artwork_url} alt="Album cover art" />
+        <img id="standardCard" src={artwork_url} alt="Album cover art" />
       </Link>
       <h3>{album_name}</h3>
       {!isFavorite ? (

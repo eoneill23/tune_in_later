@@ -73,7 +73,7 @@ export class LogInForm extends Component {
             Submit
           </button>
         </form>
-        <p>
+        <p id="signup-link">
           Are you a new user? <Link to="/signup">Click here to sign up!</Link>
         </p>
         {this.state.error && (

@@ -1,14 +1,21 @@
 * {
-    margin: 0;
     box-sizing: border-box;
     font-family: 'Permanent Marker', cursive;
+    margin: 0;
 }
 
 #search-button {
-    font-size: 30px;
-    color: #F4E697;
     background-color: transparent;
     background-position: center;
     border: none;
-    margin-right: 30px;
+    color: #F4E697;
+    font-size: 30px;
+    width: auto;
 }
+
+#search-button:hover {
+    border-radius: 15px;
+    border: 2px solid #cc7b3a;
+    width: 100%;
+  }
+
