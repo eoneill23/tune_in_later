@@ -84,20 +84,27 @@ describe ('SignUpForm', () => {
 
 describe('mapStateToProps', () => {
   it('should do something', () => {
-    const mockUser = {
-      id: 175648,
-      name: 'Inigo Montoya',
-      email: 'dreadpirateroberts@gmail.com',
-      password: 'princess'
+    const mockState = {
+      albums:[],
+      user: { id: 175648, name: 'Inigo Montoya', email: 'dreadpirateroberts@gmail.com', password: 'princess' },
+      error: '',
+      favorites: [
+        {
+          album_id: 626204707,
+          artist_name: 'Beyoncé',
+          album_name: '4 (Expanded Edition)',
+          price: 11.99,
+          artwork_url: 'https://is2-ssl.mzstatic.com/image/thumb/Music6/v4/17/84/3a/17843a6d-1f2b-7e1e-a39f-3ff865110993/source/100x100bb.jpg',
+          release_date: '2013-12-13T08:00:00Z',
+          content_advisory_rating: 'Explicit',
+          primary_genre_name: 'Pop',
+        }
+      ]
     }
     
-    const expected = {
-      user: { id: 175648, name: 'Inigo Montoya', email: 'dreadpirateroberts@gmail.com', password: 'princess' }
-    }
+    const expected = { id: 175648, name: 'Inigo Montoya', email: 'dreadpirateroberts@gmail.com', password: 'princess' }
 
-    const testProps = mapStateToProps(mockUser);
-
-    expect(testProps).toEqual(expected)
+    expect(mapStateToProps(mockState).user).toEqual(expected)
   });
 });
 
