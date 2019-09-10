@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardDetails should match the snapshot with all data passed in correctly 1`] = `
+<div>
+  <Link
+    className="back-btn"
+    to="/"
+  >
+    ◀ back
+  </Link>
+  <h1>
+    HOMECOMING
+  </h1>
+  <h1>
+    Beyonce
+  </h1>
+  <img
+    className="app-img-no-hover"
+    src="https://is2-ssl.mzstatic.com/image/thumb/Music/"
+  />
+  <p
+    className="card-detail-genre"
+  >
+    Pop
+  </p>
+  <p
+    className="card-detail-release_date"
+  >
+    2008-10-13T07:00:00Z
+  </p>
+</div>
+`;

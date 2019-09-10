@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './CardDetails.css';
+import PropTypes from 'prop-types'
 
 const CardDetails = ({ artist_name, album_name, artwork_url, release_date,  primary_genre_name, returnRoute }) => {
   return (
@@ -16,3 +17,12 @@ const CardDetails = ({ artist_name, album_name, artwork_url, release_date,  prim
 }
 
 export default CardDetails;
+
+CardDetails.propTypes = {
+  artist_name: PropTypes.string,
+  album_name: PropTypes.string,
+  artwork_url: PropTypes.string,
+  release_date: PropTypes.string,
+  primary_genre_name: PropTypes.string,
+  returnRoute: PropTypes.string
+}
