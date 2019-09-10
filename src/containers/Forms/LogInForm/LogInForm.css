@@ -26,6 +26,12 @@ input {
 .loginUser {
     font-size: 40px;
     border-radius: 15px;
+    color: #F4E697;
+}
+
+.loginUser:hover, p:hover {
+    border: 2px solid #cc7b3a;
+    border-radius: 15px;
 }
 
 #error {

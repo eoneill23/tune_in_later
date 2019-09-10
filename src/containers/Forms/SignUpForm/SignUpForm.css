@@ -26,6 +26,7 @@ input {
 .addUser {
     font-size: 40px;
     border-radius: 15px;
+    color: #F4E697;
 }
 
 .addUser:hover {

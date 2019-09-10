@@ -45,7 +45,7 @@ class SearchForm extends Component {
             again.
           </p>
         )}
-        <form className="SearchForm">
+        <form id="SearchForm">
           <input
             type="text"
             placeholder="Artist:"

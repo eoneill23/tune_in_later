@@ -48,9 +48,11 @@ const CardContainer = ({ albums, user, favorites, error, displayType }) => {
     return response;
   }
   return (
-    <section className="CardContainer">
-      {error && !user && <p>Please log in or sign up to add a favorite.</p>}
-      {cards}
+    <section>
+      {error && !user && <p id="error">Please log in or sign up to add a favorite.</p>}
+      <article className="CardContainer">
+        {cards}
+      </article>
     </section>
   );
 };

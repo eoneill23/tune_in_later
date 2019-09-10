@@ -10,5 +10,12 @@
     background-color: transparent;
     background-position: center;
     border: none;
-    margin-right: 30px;
+    width: auto;
 }
+
+#search-button:hover {
+    border: 2px solid #cc7b3a;
+    border-radius: 15px;
+    width: 100%;
+  }
+
