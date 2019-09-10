@@ -113,7 +113,7 @@ describe('mapStateToProps', () => {
 
 describe('mapDispatchToProps', () => {
 
-  it('should dispatch with a validUser with validUser is called', () => {
+  it('should dispatch with a validUser when validUser is called', () => {
     const mockUser = { id: 1, name: 'Alan', email: 'alan@turing.io' }
     const mockDispatch = jest.fn();
     const actionToDispatch = validUser(mockUser);
@@ -121,10 +121,10 @@ describe('mapDispatchToProps', () => {
     const mappedProps = mapDispatchToProps(mockDispatch);
     mappedProps.validUser({ id: 1, name: 'Alan', email: 'alan@turing.io' });
   
-    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
 
-  it('should dispatch with a validUser with validUser is called', () => {
+  it('should dispatch with a getUserFavorites when getUserFavorites is called', () => {
     const mockFavorites = [
         {
           album_id: 626204707,
@@ -137,5 +137,12 @@ describe('mapDispatchToProps', () => {
           primary_genre_name: 'Pop',
         }
       ]
+    const mockDispatch = jest.fn();
+    const actionToDispatch = getUserFavorites(mockFavorites);
+
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    mappedProps.getUserFavorites(mockFavorites);
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
 });
