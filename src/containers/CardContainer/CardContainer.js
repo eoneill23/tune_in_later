@@ -4,7 +4,7 @@ import Card from "../Card/Card";
 import "./CardContainer.css";
 import { connect } from "react-redux";
 
-const CardContainer = ({ albums, user, favorites, error, displayType }) => {
+export const CardContainer = ({ albums, user, favorites, error, displayType }) => {
   let cards;
   if (displayType === "albums") {
     cards = albums.map(album => {
