@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { postFavorite, deleteFavorite } from "../../util/apiCalls";
 
-const Card = ({
+export const Card = ({
   album_id,
   artist_name,
   album_name,
@@ -91,15 +91,15 @@ const Card = ({
   );
 };
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   favorites: state.favorites
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   addFavorite: favorite => dispatch(addFavorite(favorite)),
   invalidUser: () => dispatch(invalidUser()),
   removeFavoriteFromStore: album_id =>
-    dispatch(removeFavoriteFromStore(album_id))
+  dispatch(removeFavoriteFromStore(album_id))
 });
 
 export default connect(

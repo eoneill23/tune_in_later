@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import "./LogInForm.css";
 
-class LogInForm extends Component {
+export class LogInForm extends Component {
   constructor() {
     super();
     this.state = {
@@ -85,11 +85,11 @@ class LogInForm extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   user: state.user
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   validUser: user => dispatch(validUser(user)),
   getUserFavorites: favorites => dispatch(getUserFavorites(favorites))
 });
