@@ -1,5 +1,5 @@
 import React from 'react';
-import { SignUpForm, mapStateToProps, mapDispatchToProps } from './SignUpForm';
+import { SignUpForm,  mapStateToProps, mapDispatchToProps } from './SignUpForm';
 import { shallow } from 'enzyme';
 import  { addUser, validUser } from '../../../actions/index';
 
@@ -91,31 +91,38 @@ describe ('SignUpForm', () => {
 
 describe('mapStateToProps', () => {
   it('should do something', () => {
-    const mockState = {
+    const mockUser = {
+      id: 175648,
       name: 'Inigo Montoya',
       email: 'dreadpirateroberts@gmail.com',
-      password: 'princess',
+      password: 'princess'
     }
     
     const expected = {
-      user: { id: 1, name: 'Alan', email: 'alan@turing.io' }
+      user: { id: 175648, name: 'Inigo Montoya', email: 'dreadpirateroberts@gmail.com', password: 'princess' }
     }
 
-    const mappedProps = mapStateToProps(mockState);
+    const testProps = mapStateToProps(mockUser);
 
-    expect(mappedProps).toEqual(expected)
+    expect(testProps).toEqual(expected)
   });
 });
-  // it('should call addUser on a button click', () => {
-  //   const mockEvent = { preventDefault: jest.fn() }
 
-  //   wrapper.instance().addUser = jest.fn();
-  //   wrapper.instance().forceUpdate();
-  //   wrapper.find('button').simulate('click', mockEvent);
+describe('matchDispatchToProps', () => {
+  it('should dispatch with a valid User object when validUser is called', () => {
+    const mockUser = {
+      id: 175648,
+      name: 'Inigo Montoya',
+      email: 'dreadpirateroberts@gmail.com',
+      password: 'princess'
+    }   
+    const mockDispatch = jest.fn();
+    const actionToDispatch = validUser(mockUser);  
+    const testProps = mapDispatchToProps(mockDispatch);
 
-  //   expect(wrapper.instance().addUser).toHaveBeenCalled();
-  // });
+    testProps.validUser({ id: 175648, name: 'Inigo Montoya', email: 'dreadpirateroberts@gmail.com', password: 'princess'  });
+  
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+  });
+});
 
-  // it('should match snapshot', () => {
-  //   expect(wrapper).toMatchSnapshot()
-  // });

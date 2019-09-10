@@ -84,11 +84,11 @@ export class SignUpForm extends Component {
 	}
 }
 
-const mapStateToProps = ({user}) => ({
+export const mapStateToProps = ({user}) => ({
 user
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
 	validUser: (user) => dispatch(validUser(user))
 });
 
