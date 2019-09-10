@@ -48,6 +48,15 @@ describe('LogInForm', () => {
     expect(wrapper.instance().handleSubmit).toHaveBeenCalled();
   });
 
+  it('should call user log in on a button click', () => {
+    const mockEvent = { preventDefault: jest.fn() }
+
+    wrapper.find('button').simulate('click', mockEvent);
+
+    expect(wrapper.instance().handleSubmit).toHaveBeenCalled();
+    expect(wrapper.instance().userLogin).toHaveBeenCalled();
+  });
+
   it('should update the state when clearInputs is called', () => {
 
     const expected = '';
@@ -64,4 +73,5 @@ describe('LogInForm', () => {
     expect(wrapper.state('password')).toEqual(expected);
     expect(wrapper.state('error')).toEqual(expected);
   });
+
 });
