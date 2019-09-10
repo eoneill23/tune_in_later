@@ -111,3 +111,25 @@ describe('fetchUser', () => {
     expect(fetchUser(mockUser)).rejects.toEqual({ message: 'There was an issue retrieving your account information. Please try again.' });
   });
 });
+
+describe('addUser', () => {
+  let mockResponse, mockUser, mockOptions;
+
+  beforeEach(() => {
+    mockUser = {name: 'Alan', email: 'alan@turing.io', password: 'password' }
+    mockResponse = { id: 1, name: 'Alan', email: 'alan@turing.io' }
+    mockOptions = {
+      method: "POST",
+      body: JSON.stringify(mockUser),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockResponse)
+      });
+    });
+  });
+});
