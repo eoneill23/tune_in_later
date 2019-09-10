@@ -100,16 +100,19 @@ describe('Card', () => {
 
   it('should call deleteFavorite when isFavorite is true', () => {
 
-    favoriteWrapper.toggleFavorite = jest.fn()
+    favoriteWrapper.toggleFavorite = jest.fn();
     favoriteWrapper.toggleFavorite();
 
     expect(deleteFavorite).toHaveBeenCalled();
   });
 
   it('should call postFavorite when isFavorite is false', () => {
-    newFavoriteWrapper.toggleFavorite = jest.fn()
-    newFavoriteWrapper.toggleFavorite();
+    const mockEvent = {preventDefault: jest.fn()}
 
+    newFavoriteWrapper.invalidUser = jest.fn();
+    newFavoriteWrapper.find('img').at(0).simulate('click', mockEvent);
+
+    expect(newFavoriteWrapper.invalidUser).toHaveBeenCalled();
     expect(postFavorite).toHaveBeenCalled();
   });
 
