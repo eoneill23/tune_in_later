@@ -111,7 +111,7 @@ describe('mapStateToProps', () => {
   });
 });
 
-describe('matchDispatchToProps', () => {
+describe('mapDispatchToProps', () => {
 
   it('should dispatch with a validUser with validUser is called', () => {
     const mockUser = { id: 1, name: 'Alan', email: 'alan@turing.io' }
