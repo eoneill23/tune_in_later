@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should match the snapshot with all data passed in correctly 1`] = `
+<section
+  className="App"
+>
+  <header>
+    <Link
+      className="header-link"
+      to="/"
+    >
+      <div
+        className="headerContents"
+      >
+        <h1
+          id="header-text"
+        >
+          TuneIn Later
+        </h1>
+        <img
+          alt=""
+          id="headphones"
+          src={
+            Object {
+              "ReactComponent": Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "render": [Function],
+              },
+              "__esModule": true,
+              "default": "headphones.svg",
+            }
+          }
+        />
+      </div>
+    </Link>
+    <article
+      className="buttonContainer"
+    >
+      <Link
+        to="/login"
+      >
+        <img
+          alt=""
+          id="existingUser"
+          src={
+            Object {
+              "ReactComponent": Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "render": [Function],
+              },
+              "__esModule": true,
+              "default": "user-silhouette.svg",
+            }
+          }
+        />
+        <button
+          id="existingUser-button"
+        >
+          LogIn
+        </button>
+      </Link>
+      <Link
+        to="/signup"
+      >
+        <img
+          alt=""
+          id="newUser"
+          src={
+            Object {
+              "ReactComponent": Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "render": [Function],
+              },
+              "__esModule": true,
+              "default": "new-user.svg",
+            }
+          }
+        />
+        <button
+          id="newUser-button"
+        >
+          SignUp
+        </button>
+      </Link>
+    </article>
+  </header>
+  <Route
+    exact={true}
+    path="/signup"
+    render={[Function]}
+  />
+  <Route
+    exact={true}
+    path="/"
+    render={[Function]}
+  />
+  <Route
+    exact={true}
+    path="/login"
+    render={[Function]}
+  />
+  <Route
+    exact={true}
+    path="/"
+    render={[Function]}
+  />
+  <Route
+    exact={true}
+    path="/my-collection"
+    render={[Function]}
+  />
+  <Route
+    path="/albums/:id"
+    render={[Function]}
+  />
+  <Route
+    path="/favorites/:id"
+    render={[Function]}
+  />
+</section>
+`;

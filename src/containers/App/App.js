@@ -7,8 +7,9 @@ import CardDetails from "../../Components/CardDetails/CardDetails";
 import LogInForm from "../Forms/LogInForm/LogInForm";
 import SignUpForm from "../Forms/SignUpForm/SignUpForm";
 import { connect } from "react-redux";
+import PropTypes from 'prop-types';
 
-class App extends Component {
+export class App extends Component {
   render() {
     return (
       <section className="App">
@@ -110,10 +111,17 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   user: state.user,
   albums: state.albums,
   favorites: state.favorites
 });
 
 export default connect(mapStateToProps)(App);
+
+App.propTypes = {
+  user: PropTypes.object,
+  albums: PropTypes.array,
+  favorites: PropTypes.array,
+  mapStateToProps: PropTypes.func
+}
