@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should match the snapshot with all data passed in correctly 1`] = `
+<article
+  className="favoriteCard"
+>
+  <Link
+    to="/albums/626204707"
+  >
+    <img
+      alt="Album cover art"
+      src="https://is2-ssl.mzstatic.com/image/thumb/Music6/v4/17/84/3a/17843a6d-1f2b-7e1e-a39f-3ff865110993/source/100x100bb.jpg"
+    />
+  </Link>
+  <h3>
+    4 (Expanded Edition)
+  </h3>
+  <article
+    className="favorite"
+  >
+    <img
+      alt=""
+      id="isFavorite"
+      onClick={[Function]}
+      src={
+        Object {
+          "ReactComponent": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "render": [Function],
+          },
+          "__esModule": true,
+          "default": "isFavorite.svg",
+        }
+      }
+    />
+    <button
+      id="isFavorite-button"
+      onClick={[Function]}
+    >
+      Remove Favorite
+    </button>
+  </article>
+</article>
+`;
+
+exports[`Card should match the snapshot with all data passed in correctly 2`] = `
+<article
+  className="favoriteCard"
+>
+  <Link
+    to="/favorites/626204707"
+  >
+    <img
+      alt="Album cover art"
+      src="https://is2-ssl.mzstatic.com/image/thumb/Music6/v4/17/84/3a/17843a6d-1f2b-7e1e-a39f-3ff865110993/source/100x100bb.jpg"
+    />
+  </Link>
+  <h3>
+    4 (Expanded Edition)
+  </h3>
+  <article
+    className="favorite"
+  >
+    <img
+      alt=""
+      id="isFavorite"
+      onClick={[Function]}
+      src={
+        Object {
+          "ReactComponent": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "render": [Function],
+          },
+          "__esModule": true,
+          "default": "isFavorite.svg",
+        }
+      }
+    />
+    <button
+      id="isFavorite-button"
+      onClick={[Function]}
+    >
+      Remove Favorite
+    </button>
+  </article>
+</article>
+`;

@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { postFavorite, deleteFavorite } from "../../util/apiCalls";
 
-const Card = ({
+export const Card = ({
   album_id,
   artist_name,
   album_name,

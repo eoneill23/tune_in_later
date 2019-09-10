@@ -9,9 +9,6 @@ export const fetchAlbums = queryArtist => {
     }
     return response.json();
   });
-  // .catch(error => {
-  //   throw Error ('There was an issue retrieving your artist\'s albums. Please try again.')
-  // })
 };
 
 export const fetchUser = user => {
