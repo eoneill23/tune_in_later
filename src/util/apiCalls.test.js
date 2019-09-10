@@ -98,13 +98,13 @@ describe('fetchUser', () => {
       })
     });
 
-    expect(fetchUser(mockUser)).rejects.toEqual(Error('There was an issue retrieving your account information. Please try again.'))
+    expect(fetchUser(mockUser)).rejects.toEqual(Error('There was an issue retrieving your account information. Please try again.'));
   });
 
   it('should return an error if the promise rejects (SAD) :(', () => {
     window.fetch = jest.fn().mockImplementation(() => {
       return Promise.reject({
-        message: 'There was an issue retrieving your artist\'s albums.Please try again.'
+        message: 'There was an issue retrieving your account information. Please try again.'
       });
     });
 
@@ -131,5 +131,38 @@ describe('addUser', () => {
         json: () => Promise.resolve(mockResponse)
       });
     });
+  });
+
+  it('should call fetch with the correct Url', () => {
+
+    addUser(mockUser);
+
+    expect(window.fetch).toHaveBeenCalledWith('http://localhost:3001/api/v1/users', mockOptions);
+  });
+
+  it('should return the correct user object (HAPPY) :)', () => {
+    
+    addUser(mockUser)
+    .then(results => expect(results).toEqual(mockResponse))
+  });
+
+  it('should return an error (SAD) :(', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      })
+    });
+
+    expect(addUser(mockUser)).rejects.toEqual(Error('There was an issue creating your account.'));
+  });
+
+  it('should return an error if the promise rejects (SAD) :(', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject({
+        message: 'There was an issue creating your account.'
+      });
+    });
+
+    expect(addUser(mockUser)).rejects.toEqual({ message: 'There was an issue creating your account.' });
   });
 });
