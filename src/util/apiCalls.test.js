@@ -57,3 +57,57 @@ describe('fetchAlbums', () => {
     expect(fetchAlbums(mockQuery)).rejects.toEqual({ message: 'There was an issue retrieving your artist\'s albums.Please try again.' })
   });
 });
+
+describe('fetchUser', () => {
+  let mockResponse, mockUser, mockOptions;
+
+  beforeEach(() => {
+    mockUser = {email: 'alan@turing.io', password: 'password'}
+    mockResponse = {id: 1, name: 'Alan', email: 'alan@turing.io'}
+    mockOptions = {
+      method: "POST",
+      body: JSON.stringify(mockUser),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockResponse)
+      });
+    });
+  });
+
+  it('should call fetch with the correct Url', () => {
+    fetchUser(mockUser);
+
+    expect(window.fetch).toHaveBeenCalledWith('http://localhost:3001/api/v1/login', mockOptions)
+  });
+
+  it('should return the correct user object (HAPPY) :)', () => {
+
+    fetchUser(mockUser)
+    .then(results => expect(results).toEqual(mockResponse));
+  });
+
+  it('should return an error (SAD) :(', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      })
+    });
+
+    expect(fetchUser(mockUser)).rejects.toEqual(Error('There was an issue retrieving your account information. Please try again.'))
+  });
+
+  it('should return an error if the promise rejects (SAD) :(', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject({
+        message: 'There was an issue retrieving your artist\'s albums.Please try again.'
+      });
+    });
+
+    expect(fetchUser(mockUser)).rejects.toEqual({ message: 'There was an issue retrieving your account information. Please try again.' });
+  });
+});
