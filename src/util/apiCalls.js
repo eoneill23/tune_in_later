@@ -1,97 +1,96 @@
-export const fetchAlbums = (queryArtist) => {
-  return fetch(`https://itunes.apple.com/search?term=${queryArtist.name}&entity=album`)
-  .then(response => {
-    if(!response.ok) {
-      throw Error ('There was an issue retrieving your artist\'s albums. Please try again.')
+export const fetchAlbums = queryArtist => {
+  return fetch(
+    `https://itunes.apple.com/search?term=${queryArtist.name}&entity=album`
+  ).then(response => {
+    if (!response.ok) {
+      throw Error(
+        "There was an issue retrieving your artist's albums. Please try again."
+      );
     }
-    return response.json()
-  })
-  .catch(error => {
-    throw Error ('There was an issue retrieving your artist\'s albums. Please try again.')})
-}
+    return response.json();
+  });
+  // .catch(error => {
+  //   throw Error ('There was an issue retrieving your artist\'s albums. Please try again.')
+  // })
+};
 
-export const fetchUser = (user) => {
-  console.log(user)
+export const fetchUser = user => {
   const options = {
     method: "POST",
     body: JSON.stringify(user),
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json"
     }
-  }
-  return fetch('http://localhost:3001/api/v1/login', options)
-    .then(response => {
-      if(!response.ok) {
-        throw Error ('There was an issue retrieving your account information. Please try again.')
-      }
-      return response.json()
-    })
-    .catch(error => {
-      throw Error ('There was an issue retrieving your account information. Please try again.')})
-}
+  };
+  return fetch("http://localhost:3001/api/v1/login", options).then(response => {
+    if (!response.ok) {
+      throw Error(
+        "There was an issue retrieving your account information. Please try again."
+      );
+    }
+    return response.json();
+  });
+};
 
-export const addUser = (user) => {
+export const addUser = user => {
   const options = {
     method: "POST",
     body: JSON.stringify(user),
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json"
     }
-  }
-  return fetch('http://localhost:3001/api/v1/users', options)
-    .then(response => {
-      if (!response.ok) {
-        throw Error('There was an issue creating your account.')
-      }
-      return response.json()
-    })
-    .catch(error => {
-      throw Error('There was an issue creating your account.')
-    })
-}
+  };
+  return fetch("http://localhost:3001/api/v1/users", options).then(response => {
+    if (!response.ok) {
+      throw Error("There was an issue creating your account.");
+    }
+    return response.json();
+  });
+};
 
-export const fetchUserFavorites = (id) => {
-  console.log(id)
-  return fetch(`http://localhost:3001/api/v1/users/${id}/albumfavorites`)
-    .then(response => {
+export const fetchUserFavorites = id => {
+  return fetch(`http://localhost:3001/api/v1/users/${id}/albumfavorites`).then(
+    response => {
       if (!response.ok) {
-        throw Error('There was an issue getting your favorites.')
+        throw Error("There was an issue getting your favorites.");
       }
-      console.log('THIS IS THE RESPONSE', response)
-      return response.json()
-    })
-    .catch(error => {
-      throw Error('There was an issue getting your favorites.')
-    })
-}
+      return response.json();
+    }
+  );
+};
 
 export const postFavorite = (card, id) => {
   const options = {
-    method: 'POST',
+    method: "POST",
     body: JSON.stringify(card),
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json"
     }
-  }
+  };
 
-  return fetch(`http://localhost:3001/api/v1/users/${id}/albumfavorites`, options)
-  .then(response => {
+  return fetch(
+    `http://localhost:3001/api/v1/users/${id}/albumfavorites`,
+    options
+  ).then(response => {
     if (!response.ok) {
-      throw Error('There was an issue adding your favorite.')
+      throw Error("There was an issue adding your favorite.");
     }
-    return response.json()
-  })
-  .catch(error => {
-    console.log(error)
-    // throw Error('There was an issue adding your favorite.')
-  })
-}
+    return response.json();
+  });
+};
 
 export const deleteFavorite = (albumId, userId) => {
-    const options = {
-      method: "DELETE"
-    };
-    fetch(`http://localhost:3001/api/v1/users/${userId}/albumfavorites/${albumId}`, options)
-    .then(response => console.log(response))
-    .catch(error => console.log(error))
-}
+  const options = {
+    method: "DELETE"
+  };
+  return fetch(
+    `http://localhost:3001/api/v1/users/${userId}/albumfavorites/${albumId}`,
+    options
+  ).then(response => {
+    if (!response.ok) {
+      throw Error(
+        "There was an issue deleting your favorite. You're stuck with it."
+      );
+    }
+  });
+};

@@ -8,7 +8,8 @@ class SearchForm extends Component {
   constructor() {
     super();
     this.state = {
-      artist: ""
+      artist: "",
+      error: ""
     };
   }
 
@@ -22,22 +23,28 @@ class SearchForm extends Component {
       name: this.state.artist
     };
     this.searchArtist(queryArtist);
-	this.clearInputs();
+    this.clearInputs();
   };
 
   clearInputs = () => {
-    this.setState({ artist: "" });
+    this.setState({ artist: "", error: "" });
   };
 
   searchArtist = queryArtist => {
     fetchAlbums(queryArtist)
       .then(albums => this.props.addAlbums(albums.results))
-      .catch(error => console.log(error));
+      .catch(error => this.setState({ error: error }));
   };
 
   render() {
     return (
       <section className="SearchFormContainer">
+        {this.state.error && (
+          <p id="error">
+            There was an issue retrieving your artist's albums. Please try
+            again.
+          </p>
+        )}
         <form className="SearchForm">
           <input
             type="text"
@@ -48,7 +55,7 @@ class SearchForm extends Component {
           />
           <button
             id="search-button"
-			onClick={event => this.handleSubmit(event)}
+            onClick={event => this.handleSubmit(event)}
           >
             Search
           </button>
