@@ -257,3 +257,59 @@ describe('deleteFavorite', () => {
     expect(deleteFavorite(mockUserId, mockAlbumId)).rejects.toEqual(Error( 'There was an issue deleting your favorite. You\'re stuck with it.' ));
   });
 });
+
+describe('fetchUserFavorites', () => {
+  let mockResponse;
+
+  beforeEach(() => {
+    mockResponse = [{
+      id: 2,
+      user_id: 1,
+      album_id: 558262493,
+      artist_name: 'alt-J',
+      album_name: 'An Awesome Wave',
+      artwork_url: 'https://is5-ssl.mzstatic.com/image/thumb/Music/v4/3b/43/9e/3b439e7f-9989-1dc1-9ffb-8d876ddb0da1/source/100x100bb.jpg', release_date: '2012-09-18T07:00:00Z',
+      content_advisory_rating: 'notExplicit',
+      primary_genre_name: 'Alternative'
+    }];
+
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockResponse)
+      });
+    });
+  });
+
+  it('should call fetch with the correct Url', () => {
+    fetchUserFavorites(1);
+
+    expect(window.fetch).toHaveBeenCalledWith('http://localhost:3001/api/v1/users/1/albumfavorites');
+  });
+
+  it('should return the array of favorites (HAPPY) :)', () => {
+    fetchUserFavorites(1)
+    .then(results => expect(results).toEqual(mockResponse))
+  });
+
+  it('should throw an error (SAD) :(', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      })
+    });
+    expect(fetchUserFavorites(1)).rejects.toEqual(Error('There was an issue getting your favorites.'));
+  });
+
+  it('should throw an error if the promise rejects (SAD)', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject({
+        message: 'There was an issue getting your favorites.'
+      });
+    });
+
+    expect(fetchUserFavorites(1)).rejects.toEqual(Error({
+      message: 'There was an issue getting your favorites.'
+    }));
+  });
+});
