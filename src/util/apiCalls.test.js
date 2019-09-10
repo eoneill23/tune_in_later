@@ -32,7 +32,6 @@ describe('fetchAlbums', () => {
   });
 
   it('should return an array of albums (HAPPY) :)', () => {
-
     fetchAlbums(mockQuery)
     .then(results => expect(results).toEqual(mockResponse));
   });
@@ -86,7 +85,6 @@ describe('fetchUser', () => {
   });
 
   it('should return the correct user object (HAPPY) :)', () => {
-
     fetchUser(mockUser)
     .then(results => expect(results).toEqual(mockResponse));
   });
@@ -134,14 +132,12 @@ describe('addUser', () => {
   });
 
   it('should call fetch with the correct Url', () => {
-
     addUser(mockUser);
 
     expect(window.fetch).toHaveBeenCalledWith('http://localhost:3001/api/v1/users', mockOptions);
   });
 
   it('should return the correct user object (HAPPY) :)', () => {
-    
     addUser(mockUser)
     .then(results => expect(results).toEqual(mockResponse))
   });
@@ -164,5 +160,75 @@ describe('addUser', () => {
     });
 
     expect(addUser(mockUser)).rejects.toEqual({ message: 'There was an issue creating your account.' });
+  });
+});
+
+describe('postFavorite', () => {
+  let mockResponse, mockCard, mockOptions;
+
+  beforeEach(() => {
+    mockCard = { 
+      album_id: 558262493, 
+      artist_name: 'alt-J', 
+      album_name: 'An Awesome Wave', 
+      artwork_url: 'https://is5-ssl.mzstatic.com/image/thumb/Music/v4/3b/43/9e/3b439e7f-9989-1dc1-9ffb-8d876ddb0da1/source/100x100bb.jpg', 
+      release_date: '2012-09-18T07:00:00Z',
+      content_advisory_rating: 'notExplicit',
+      primary_genre_name: 'Alternative' 
+    }
+    mockResponse = { 
+      id: 2, 
+      user_id: 1, 
+      album_id: 558262493, 
+      artist_name: 'alt-J', 
+      album_name: 'An Awesome Wave', 
+      artwork_url: 'https://is5-ssl.mzstatic.com/image/thumb/Music/v4/3b/43/9e/3b439e7f-9989-1dc1-9ffb-8d876ddb0da1/source/100x100bb.jpg', release_date: '2012-09-18T07:00:00Z', 
+      content_advisory_rating: 'notExplicit', 
+      primary_genre_name: 'Alternative'
+    }
+    mockOptions = {
+      method: "POST",
+      body: JSON.stringify(mockCard),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockResponse)
+      });
+    });
+  });
+
+  it('should call fetch with the correct URL', () => {
+    postFavorite(mockCard, 1);
+
+    expect(window.fetch).toHaveBeenCalledWith('http://localhost:3001/api/v1/users/1/albumfavorites', mockOptions);
+  });
+
+  it('should return the correct card (HAPPY) :)', () => {
+    postFavorite(mockCard, 1)
+    .then(results => expect(results).toEqual(mockResponse))
+  });
+
+  it('should throw and error (SAD) :(', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      })
+    });
+
+    expect(postFavorite(mockCard, 1)).rejects.toEqual(Error('There was an issue adding your favorite.'));
+  });
+
+  it('should return an error if the promise rejects (SAD) :(', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject({
+        message: 'There was an issue adding your favorite.'
+      });
+    });
+
+    expect(postFavorite(mockCard, 1)).rejects.toEqual({ message: 'There was an issue adding your favorite.' });
   });
 });
