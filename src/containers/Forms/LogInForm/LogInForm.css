@@ -1,37 +1,37 @@
 .LogInFormContainer {
+    align-items: center;
+    color: #F4E697;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     font-family: 'Permanent Marker', cursive;
-    color: #F4E697;
+    justify-content: center;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    width: 35%;
-    margin: auto;
     height: 170px;
+    justify-content: space-evenly;
+    margin: auto;
+    width: 35%;
 }
 
 input {
-    height: 50px;
-    font-size: 20px;
     border-radius: 15px;
+    font-size: 20px;
+    height: 50px;
     padding: 5px;
 }
 
 .loginUser {
-    font-size: 40px;
     border-radius: 15px;
     color: #F4E697;
+    font-size: 40px;
 }
 
 .loginUser:hover, #signup-link:hover {
-    border: 2px solid #cc7b3a;
     border-radius: 15px;
+    border: 2px solid #cc7b3a;
 }
 
 

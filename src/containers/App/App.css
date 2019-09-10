@@ -1,16 +1,16 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   font-family: "Permanent Marker", cursive;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-  height: 225px;
-  width: 100%;
-  font-size: 3em;
   background-color: #596743;
   color: #f4e697;
+  font-size: 3em;
+  height: 225px;
+  width: 100%;
 }
 
 #headphones {
@@ -18,8 +18,8 @@ header {
 }
 
 a {
-  text-decoration: none;
   color: #f4e697;
+  text-decoration: none;
 }
 
 img {
@@ -28,45 +28,45 @@ img {
 }
 
 .headerContents {
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
 }
 
 .buttonContainer {
-  text-align: center;
   display: flex;
   justify-content: center;
   margin: auto;
+  text-align: center;
 }
 
-#newUser-button,
 #existingUser-button,
 #logoutUser-button,
+#newUser-button,
 #viewFavorites-button {
-  font-size: 20px;
-  color: #f4e697;
   background-color: transparent;
   background-position: center;
   border: none;
+  color: #f4e697;
+  font-size: 20px;
   margin-right: 30px;
 }
 
-#newUser,
 #existingUser,
 #logoutUser,
+#newUser,
 #viewFavorites {
   height: auto;
-  width: 3%;
   margin-right: 8px;
+  width: 3%;
 }
 
-#newUser-button:hover,
 #existingUser-button:hover,
+#header-text:hover 
 #logoutUser-button:hover,
-#viewFavorites-button:hover,
-#header-text:hover {
+#newUser-button:hover,
+#viewFavorites-button:hover {
   border: 2px solid #cc7b3a;
   border-radius: 15px;
 }

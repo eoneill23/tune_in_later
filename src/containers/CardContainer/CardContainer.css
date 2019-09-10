@@ -2,14 +2,14 @@
   background-color: #384150;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-evenly;
   height: 100vh;
+  justify-content: space-evenly;
   width: 100%;
 }
 
 #error {
   color: red;
-  text-align: center;
-  height: 25px;
   font-size: 15px;
+  height: 25px;
+  text-align: center;
 }
