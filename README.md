@@ -23,17 +23,17 @@ In addition to searching for music from different artists, users can also log in
 
 ## Images
 
-Home:
+### Home page:
 ![Home screenshot](./src/images/home-page.png)
 
-Log-in form:
+### Log-in form:
 ![Log-in form screenshot](./src/images/log-in-form.png)
 
-Signup form:
+### Signup form:
 ![Signup form screenshot](./src/images/sign-up.png)
 
-Logged-in home page:
+### Logged-in home page:
 ![Logged-in home page screenshot](./src/images/logged-in-home-page.png)
 
-Favorites page:
+### Favorites page:
 ![Favorites page screenshot](./src/images/favorites-page.png)
