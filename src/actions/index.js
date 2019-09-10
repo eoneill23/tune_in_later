@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const addAlbums = (albums) => ({
 	type: 'ADD_ALBUMS',
 	albums
@@ -26,3 +28,4 @@ export const removeFavoriteFromStore = (albumId) => ({
 	type: 'REMOVE_FAVORITE_FROM_STORE',
 	albumId
 })
+
