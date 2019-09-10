@@ -128,7 +128,7 @@ describe('Card', () => {
     albumWrapper.isUserLoggedIn = jest.fn();
     let mockEvent = { preventDefault: jest.fn() }
 
-    albumWrapper.find('button').at(1).simulate('click', mockEvent);
+    albumWrapper.find('button').at(0).simulate('click', mockEvent);
 
     expect(albumWrapper.isUserLoggedIn).toHaveBeenCalledWith(mockEvent);
   });

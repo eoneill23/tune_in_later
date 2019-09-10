@@ -85,11 +85,11 @@ export class LogInForm extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   user: state.user
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   validUser: user => dispatch(validUser(user)),
   getUserFavorites: favorites => dispatch(getUserFavorites(favorites))
 });
