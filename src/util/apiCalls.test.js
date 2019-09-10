@@ -244,7 +244,7 @@ describe('deleteFavorite', () => {
         ok: false
       })
     });
-    expect(deleteFavorite(mockUserId, mockAlbumId)).rejects.toEqual({ message: 'There was an issue deleting your favorite. You\'re stuck with it.' });
+    expect(deleteFavorite(mockUserId, mockAlbumId)).rejects.toEqual(Error('There was an issue deleting your favorite. You\'re stuck with it.'));
   });
 
   it('should return an error if the promise rejects (SAD) :(', () => {
@@ -254,7 +254,9 @@ describe('deleteFavorite', () => {
       });
     });
 
-    expect(deleteFavorite(mockUserId, mockAlbumId)).rejects.toEqual(Error( 'There was an issue deleting your favorite. You\'re stuck with it.' ));
+    expect(deleteFavorite(mockUserId, mockAlbumId)).rejects.toEqual({
+      message: 'There was an issue deleting your favorite. You\'re stuck with it.'
+    });
   });
 });
 
@@ -308,8 +310,8 @@ describe('fetchUserFavorites', () => {
       });
     });
 
-    expect(fetchUserFavorites(1)).rejects.toEqual(Error({
+    expect(fetchUserFavorites(1)).rejects.toEqual({
       message: 'There was an issue getting your favorites.'
-    }));
+    });
   });
 });
