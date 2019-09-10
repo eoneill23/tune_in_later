@@ -1,0 +1,16 @@
+#cardDetails-container {
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #F4E697;
+}
+
+#album-name {
+  font-size: 40px;
+}
+
+#artist-name {
+  font-size: 30px;
+}

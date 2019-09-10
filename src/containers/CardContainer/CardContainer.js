@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import Card from "../Card/Card";
 import "./CardContainer.css";
 import { connect } from "react-redux";
@@ -48,9 +49,11 @@ const CardContainer = ({ albums, user, favorites, error, displayType }) => {
     return response;
   }
   return (
-    <section className="CardContainer">
-      {error && !user && <p>Please log in or sign up to add a favorite.</p>}
-      {cards}
+    <section>
+      {error && !user && <p id="error">Please log in or sign up to add a favorite.</p>}
+      <article className="CardContainer">
+        {cards}
+      </article>
     </section>
   );
 };
@@ -63,3 +66,11 @@ export const mapStateToProps = store => ({
 });
 
 export default connect(mapStateToProps)(CardContainer);
+
+CardContainer.propTypes = {
+  albums: PropTypes.array,
+  user: PropTypes.object,
+  favorites: PropTypes.array,
+  error: PropTypes.string,
+  displayType: PropTypes.string.isRequired
+}

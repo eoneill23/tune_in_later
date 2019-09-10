@@ -15,7 +15,7 @@ class App extends Component {
         <header>
           <Link to={"/"} className="header-link">
             <div className="headerContents">
-              <h1>TuneIn Later</h1>
+              <h1 id="header-text">TuneIn Later</h1>
               <img id="headphones" src={require("./headphones.svg")} alt="" />
             </div>
           </Link>
