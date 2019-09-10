@@ -133,3 +133,44 @@ describe('addUser', () => {
     });
   });
 });
+
+describe('deleteFavorite', () => {
+  let mockOptions, mockUserId, mockAlbumId;
+
+  beforeEach(() => {
+    mockUserId = 1;
+    mockAlbumId = 2;
+    mockOptions = { method: "DELETE" };
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true
+      });
+    });
+  });
+
+  it('should call fetch with the correct Url (HAPPY) :)', () => {
+    deleteFavorite(mockAlbumId, mockUserId);
+
+    expect(window.fetch).toHaveBeenCalledWith(`http://localhost:3001/api/v1/users/${mockUserId}/albumfavorites/${mockAlbumId}`, mockOptions)
+  });
+
+  it('should return an error (SAD) :(', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      })
+    });
+
+    expect(deleteFavorite(mockUserId, mockAlbumId)).rejects.toEqual({ message: 'There was an issue deleting your favorite. You\'re stuck with it.' });
+  });
+
+  it('should return an error if the promise rejects (SAD) :(', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject({
+        message: 'There was an issue deleting your favorite. You\'re stuck with it.'
+      });
+    });
+
+    expect(deleteFavorite(mockUserId, mockAlbumId)).rejects.toEqual({ message: 'There was an issue deleting your favorite. You\'re stuck with it.' });
+  });
+});
