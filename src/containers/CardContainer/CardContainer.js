@@ -69,7 +69,7 @@ export default connect(mapStateToProps)(CardContainer);
 
 CardContainer.propTypes = {
   albums: PropTypes.array,
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object,
   favorites: PropTypes.array,
   error: PropTypes.string,
   displayType: PropTypes.string.isRequired
