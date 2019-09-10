@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LogInForm should match the snapshot with all data passed in correctly 1`] = `
+<Redirect
+  to="/"
+/>
+`;

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import "./LogInForm.css";
 
-class LogInForm extends Component {
+export class LogInForm extends Component {
   constructor() {
     super();
     this.state = {
