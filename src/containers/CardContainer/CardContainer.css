@@ -13,8 +13,3 @@
   height: 25px;
   font-size: 15px;
 }
-
-.favorite:hover {
-  border: 2px solid #cc7b3a;
-  border-radius: 15px;
-}

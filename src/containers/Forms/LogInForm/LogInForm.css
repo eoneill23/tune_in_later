@@ -29,12 +29,10 @@ input {
     color: #F4E697;
 }
 
-.loginUser:hover, p:hover {
+.loginUser:hover, #signup-link:hover {
     border: 2px solid #cc7b3a;
     border-radius: 15px;
 }
 
-#error {
-    font-size: 15px;
-    color: red;
-}
+
+

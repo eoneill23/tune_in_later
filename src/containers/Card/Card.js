@@ -8,6 +8,7 @@ import {
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { postFavorite, deleteFavorite } from "../../util/apiCalls";
+import PropTypes from 'prop-types';
 
 export const Card = ({
   album_id,
@@ -106,3 +107,19 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Card);
+
+Card.propTypes = {
+  album_id: PropTypes.number,
+  artist_name: PropTypes.string,
+  album_name: PropTypes.string,
+  artwork_url: PropTypes.string,
+  release_date: PropTypes.string,
+  content_advisory_rating: PropTypes.string,
+  primary_genre_name: PropTypes.string,
+  user: PropTypes.object,
+  addFavorite: PropTypes.func,
+  invalidUser: PropTypes.func,
+  favorites: PropTypes.array,
+  removeFavoriteFromStore: PropTypes.func,
+  routeType: PropTypes.string
+}

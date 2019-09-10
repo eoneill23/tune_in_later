@@ -56,6 +56,6 @@ button {
   width: 15%;
 }
 
-#isFavorite:hover, #notFavorite:hover {
+#isFavorite:hover, #notFavorite:hover, #standardCard:hover {
   border: 2px solid #CC7B3A;
 }

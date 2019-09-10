@@ -4,6 +4,7 @@ import { validUser, getUserFavorites } from "../../../actions/index";
 import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import "./LogInForm.css";
+import PropTypes from 'prop-types';
 
 export class LogInForm extends Component {
   constructor() {
@@ -72,7 +73,7 @@ export class LogInForm extends Component {
             Submit
           </button>
         </form>
-        <p>
+        <p id="signup-link">
           Are you a new user? <Link to="/signup">Click here to sign up!</Link>
         </p>
         {this.state.error && (
@@ -98,3 +99,9 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(LogInForm);
+
+LogInForm.propTypes = {
+  user: PropTypes.object,
+  mapDispatchToProps: PropTypes.func,
+  mapStateToProps: PropTypes.func,
+}

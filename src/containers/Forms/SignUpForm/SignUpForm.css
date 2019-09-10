@@ -32,8 +32,3 @@ input {
 .addUser:hover {
     border: 2px solid #CC7B3A;
 }
-
-#error {
-    font-size: 15px;
-    color: red;
-}
